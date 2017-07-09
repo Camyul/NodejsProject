@@ -1,0 +1,16 @@
+{
+  "name": "NodejsProject",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Express7/NodejsProject.git",
+  "author": "Camyul <vankata.lt@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.3",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "pug": "^2.0.0-rc.2"
+  }
+}
