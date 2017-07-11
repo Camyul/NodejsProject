@@ -1,18 +1,19 @@
 {
-  "name": "NodejsProject",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/Express7/NodejsProject.git",
-  "author": "Camyul <vankata.lt@outlook.com>",
-  "license": "MIT",
-  "dependencies": {
-    "body-parser": "^1.17.2",
-    "bootstrap": "^3.3.7",
-    "express": "^4.15.3",
-    "gulp": "^3.9.1",
-    "gulp-nodemon": "^2.2.1",
-    "passport": "^0.3.2",
-    "passport-localapikey": "0.0.3",
-    "pug": "^2.0.0-rc.2"
-  }
+    "name": "NodejsProject",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/Express7/NodejsProject.git",
+    "author": "Team Express 7",
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "^1.17.2",
+        "bootstrap": "^3.3.7",
+        "express": "^4.15.3",
+        "gulp": "^3.9.1",
+        "gulp-nodemon": "^2.2.1",
+        "mongodb": "^2.2.30",
+        "passport": "^0.3.2",
+        "passport-localapikey": "0.0.3",
+        "pug": "^2.0.0-rc.2"
+    }
 }

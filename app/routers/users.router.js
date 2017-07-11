@@ -13,14 +13,23 @@ const attach = (app) => {
         })
         .get('/auth/sign-up', (req, res) => {
             return res.render('sign-up');
+        })
+        .get('/profile', (req, res) => {
+            return res.send('---Profile---');
+        })
+        .get('/contact', (req, res) => {
+            return res.render('contact');
+        })
+        .get('/about', (req, res) => {
+            return res.render('about');
         });
-        // .post("/register", );
+    // .post("/register", );
 
-        // .get("/login", );
-        // .post("/login", );
+    // .get("/login", );
+    // .post("/login", );
 
-        // .get("/logout", );
-    
+    // .get("/logout", );
+
 
     app.use('/', router);
 };
