@@ -10,15 +10,17 @@ const attach = (app) => {
         })
         .get('/profile', (req, res) => {
             return res.send('---Profile---');
+        })
+        .get('/auth/sign-up', (req, res) => {
+            return res.render('sign-up');
         });
-    /*  .get("/register", );
-        .post("/register", );
+        // .post("/register", );
 
-        .get("/login", );
-        .post("/login", );
+        // .get("/login", );
+        // .post("/login", );
 
-        .get("/logout", );
-    */
+        // .get("/logout", );
+    
 
     app.use('/', router);
 };

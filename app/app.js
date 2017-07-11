@@ -1,10 +1,12 @@
 const express = require('express');
+const database = require('./config/database');
 
 const app = express();
 
 require('./config/app.config')(app);
 
 require('./routers')(app);
+database();
 
 app.get('*', (req, res) => {
     res.status(404)
