@@ -1,0 +1,74 @@
+extend shared/_master
+
+block body
+ section.section-background
+  .container
+    h2.page-header
+      | get in touch with us
+    ol.breadcrumb
+      li
+        a(href='/') Home
+      li.active  contact
+
+ section.section-wrapper.contact-and-map
+  .container
+    .row
+      .col-sm-6
+        h2.section-title
+          | Send Message
+        .form
+          .input-group
+            input.form-control.border-radius.border-right(type='text', placeholder='Name', required='')
+            span.input-group-addon.border-radius.custom-addon
+              i.ion-person
+          .input-group
+            input.form-control.border-radius.border-right(name='email', type='email', placeholder='Email address', required='')
+            span.input-group-addon.border-radius.custom-addon
+              i.ion-email
+          .input-group
+            input.form-control.border-radius.border-right(type='tel', placeholder='Phone number')
+            span.input-group-addon.border-radius.custom-addon
+              i.ion-ios-telephone
+          .input-group
+            textarea.form-control.border-radius.border-right(rows='8', placeholder='Write Message')
+            span.input-group-addon.border-radius.custom-addon
+              i.ion-chatbubbles
+          button.btn.btn-default.border-radius.custom-button(type='submit') SEND MESSAGE
+      .col-sm-6
+        h2.section-title
+          | Find Us Via Google Map
+        #googleMap
+
+ .subscribe.section-wrapper
+  a.brand-logo(href='/', title='HOME')
+    i.ion-paper-airplane
+    |  Shared 
+    span Travel
+  p.subscribe-now
+    | Subscribe to our Newsletter
+  .container
+    .row
+      .col-md-4.col-sm-6.col-md-offset-4.col-sm-offset-3
+        .input-group
+          input.form-control.border-radius(type='email', placeholder='Email address')
+          span.input-group-btn
+            button.btn.btn-default.border-radius.custom-sub-btn(type='button') DONE
+  ul.social-icon
+    li
+      a(href='#')
+        i.ion-social-twitter
+    li
+      a(href='#')
+        i.ion-social-facebook
+    li
+      a(href='#')
+        i.ion-social-linkedin-outline
+    li
+      a(href='#')
+        i.ion-social-googleplus
+ footer
+  .container
+    .row
+      .col-xs-6
+        .text-left
+          | © Copyright Shared Travel
