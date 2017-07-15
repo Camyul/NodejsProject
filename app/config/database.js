@@ -8,7 +8,7 @@ const url = 'mongodb://localhost:27017/sampleDB';
 function database() {
     MongoClient.connect(url, function(err, db) {
         if (err) {
-        console.log('Unable to connect to server', err);
+            console.log('Unable to connect to server', err);
         } else {
             console.log('Successful connection to database.');
             const collection = db.collection('users');
@@ -34,5 +34,3 @@ function database() {
 }
 
 module.exports = database;
-
-

@@ -3,7 +3,14 @@ const database = require('./config/database');
 
 const app = express();
 
+const data = require('./data');
+
 require('./config/app.config')(app);
+require('./config/auth.config')(app, data);
+
+app.use((req, res, next) => {
+    next();
+});
 
 require('./routers')(app);
 database();

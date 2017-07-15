@@ -11,9 +11,6 @@ const attach = (app) => {
         .get('/profile', (req, res) => {
             return res.send('---Profile---');
         })
-        .get('/auth/sign-up', (req, res) => {
-            return res.render('sign-up');
-        })
         .get('/profile', (req, res) => {
             return res.send('---Profile---');
         })
@@ -23,14 +20,6 @@ const attach = (app) => {
         .get('/about', (req, res) => {
             return res.render('about');
         });
-    // .post("/register", );
-
-    // .get("/login", );
-    // .post("/login", );
-
-    // .get("/logout", );
-
-
     app.use('/', router);
 };
 
