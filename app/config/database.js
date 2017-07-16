@@ -1,7 +1,6 @@
 const mongodb = require('mongodb');
 
 const MongoClient = mongodb.MongoClient;
-const express = require('express');
 
 const url = 'mongodb://localhost:27017/sampleDB';
 

@@ -32,7 +32,7 @@ block body
   p.section-subtitle
     | Where would you like to go?
   .row
-    .col-md-3.col-sm-6
+    .col-md-4.col-sm-6
       form.form-dropdown(role='form')
         .form-group
           label(for='sel1') Select list (select one):
@@ -41,17 +41,12 @@ block body
             option Bangladesh
             option Canada
             option India
-    .col-md-3.col-sm-6
+    .col-md-4.col-sm-6
       .input-group
-        input.form-control.border-radius.border-right(type='text', placeholder='Arrival')
+        input.form-control.border-radius.border-right(type='date', placeholder='Arrival')
         span.input-group-addon.border-radius.custom-addon
           i.ion-ios-calendar
-    .col-md-3.col-sm-6
-      .input-group
-        input.form-control.border-radius.border-right(type='text', placeholder='Departure')
-        span.input-group-addon.border-radius.custom-addon
-          i.ion-ios-calendar
-    .col-md-3.col-sm-6
+    .col-md-4.col-sm-6
       .btn.btn-default.border-radius.custom-button
         | Search
 

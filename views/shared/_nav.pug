@@ -17,14 +17,15 @@ mixin nav
                         a(href='/') Home
                     if user
                         li
-                            a(href='/profile') Profile
-                        li
-                            a(href="/auth/sign-out")
-                                | Sign out
+                            a(href='/profile')
+                                =user.username
                         li
                             a(href='/contact') contact
                         li
                             a(href='/about') about
+                        li
+                            a(href="/auth/sign-out")
+                                | Sign out
                     else
                         li
                             a(href='/auth/sign-up')

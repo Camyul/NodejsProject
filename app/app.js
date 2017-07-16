@@ -9,6 +9,8 @@ require('./config/app.config')(app);
 require('./config/auth.config')(app, data);
 
 app.use((req, res, next) => {
+    console.log('---- Current user ----');
+    console.log(req.user);
     next();
 });
 
