@@ -6,10 +6,10 @@ const attach = (app) => {
     console.log('In router');
     router
         .get('/sign-up', (req, res) => {
-            return res.render('./auth/sign-up');
+            return res.status(200).render('./auth/sign-up');
         })
         .get('/sign-in', (req, res) => {
-            return res.render('./auth/sign-in');
+            return res.status(200).render('./auth/sign-in');
         })
         .get('/sign-out', (req, res) => {
             req.logout();
