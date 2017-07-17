@@ -8,10 +8,11 @@
            (username, password, done) => {
                return users.findByUsername(username)
                    .then((user) => {
-                       if (user.password !== password) {
-                           done(new Error('Invalid Password'));
+                       if (user.password === password) {
+                           done(null, user);
+                       } else {
+                           done(null, false);
                        }
-                       return done(null, user);
                    })
                    .catch((err) => {
                        return done(err);

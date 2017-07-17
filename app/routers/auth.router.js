@@ -3,7 +3,6 @@ const passport = require('passport');
 
 const attach = (app) => {
     const router = new Router();
-    console.log('In router');
     router
         .get('/sign-up', (req, res) => {
             return res.status(200).render('./auth/sign-up');
@@ -18,7 +17,7 @@ const attach = (app) => {
         .post('/sign-in',
             passport.authenticate('local', {
                 successRedirect: '/',
-                failureRedirect: '/sign-in',
+                failureRedirect: '/auth/sign-in',
                 failureFlash: true,
             })
         );
