@@ -9,7 +9,11 @@ const attach = (app) => {
             // .send('---Root---');
         })
         .get('/profile', (req, res) => {
-            return res.status(200).render('./profile/profile');
+            if (!req.isAuthenticated()) {
+                res.status(401).render('./profile/unauthorized');
+            } else {
+                res.status(200).render('./profile/profile');
+            }
         })
         .get('/contact', (req, res) => {
             return res.render('contact');
