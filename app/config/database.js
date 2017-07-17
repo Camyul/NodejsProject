@@ -21,9 +21,6 @@ function database() {
             collection.find().toArray(function(error, result) {
                 if (error) {
                     console.log(error);
-                } else {
-                    console.log(result);
-                    console.log(collection.collectionName);
                 }
                 // Close connection
                 db.close();

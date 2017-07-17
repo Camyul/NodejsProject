@@ -17,6 +17,9 @@ const attach = (app) => {
         })
         .get('/contact', (req, res) => {
             return res.render('contact');
+        })
+        .get('/offers', (req, res) => {
+            return res.render('offers');
         });
     app.use('/', router);
 };
