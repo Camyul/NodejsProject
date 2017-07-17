@@ -5,14 +5,11 @@ const attach = (app) => {
 
     router
         .get('/', (req, res) => {
-            return res.render('home');
+            return res.status(200).render('home');
             // .send('---Root---');
         })
         .get('/profile', (req, res) => {
-            return res.send('---Profile---');
-        })
-        .get('/profile', (req, res) => {
-            return res.send('---Profile---');
+            return res.status(200).render('./profile/profile');
         })
         .get('/contact', (req, res) => {
             return res.render('contact');

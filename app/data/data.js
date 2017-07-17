@@ -1,12 +1,16 @@
 const usersList = [{
-    name: 'Simo',
+    username: 'Simo',
     password: 'simosimo',
     id: 1,
+}, {
+    username: 's',
+    password: 's',
+    id: 2,
 }];
 
 const users = {
     findById(id) {
-        console.log('it works - id');
+        console.log(`findById - ${id}`);
         id = +id;
         const user =
             usersList.find((u) => u.id === id);
@@ -19,7 +23,7 @@ const users = {
         });
     },
     findByUsername(username) {
-        console.log('it works - username');
+        console.log(`findByUsername - ${username}`);
         const usernameToLower = username.toLowerCase();
         const user =
             usersList.find((u) => u.username.toLowerCase() === usernameToLower);

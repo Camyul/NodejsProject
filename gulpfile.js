@@ -6,7 +6,7 @@ const PORT = 3001;
 
 gulp.task('server', () => {
     const app = require('./app');
-    app.listen(PORT, () => console.log(`Magic happen at: ${PORT}`));
+    app.listen(PORT, () => console.log(`It works at: ${PORT}`));
 });
 
 gulp.task('dev', ['server'], () => {

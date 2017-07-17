@@ -6,12 +6,11 @@ const express = require('express');
 
 const bodyParser = require('body-parser');
 
-const PORT = 3001;
-
 const configApp = (app) => {
     app.set('view engine', 'pug');
 
-    // app.use(bodyParser.json());
+    console.log('config App');
+    app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
 
     app.use('/libs',
