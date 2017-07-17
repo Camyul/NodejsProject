@@ -20,6 +20,9 @@ const attach = (app) => {
         })
         .get('/offers', (req, res) => {
             return res.render('offers');
+        })
+        .get('/destinations', (req, res) => {
+            return res.render('destinations');
         });
     app.use('/', router);
 };

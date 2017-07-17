@@ -99,3 +99,13 @@ span.input-group-addon i {
     font-size: 11px;
     text-align: center;
 }
+
+#main-heading {
+    color: black;
+    text-align: center;
+}
+
+#user,
+#signout {
+    color: black;
+}

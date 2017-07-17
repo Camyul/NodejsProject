@@ -13,27 +13,36 @@ mixin nav
                     span travel
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
                 ul.nav.navbar-nav.navbar-right
-                    li.active
+                    li
                         a(href='/') Home
                     if user
-                        li
-                            a(href='/profile')
-                                =user.username
                         li
                             a(href='/contact') contact
                         li
                             a(href='/about') about
                         li
-                            a(href="/auth/sign-out")
+                            a(href='/offers') offers
+                        li
+                            a(href='/destinations') all destinations
+                        li
+                            a(href='/profile')#user
+                                .glyphicon.glyphicon-user                    
+                                =user.username
+                        li
+                            a(href="/auth/sign-out")#signout
                                 | Sign out
                     else
+                        li
+                            a(href='/contact') contact
+                        li
+                            a(href='/about') about
+                        li
+                            a(href='/offers') offers
+                        li
+                            a(href='/destinations') all destinations
                         li
                             a(href='/auth/sign-up')
                                 | Sign up
                         li
                             a(href='/auth/sign-in')
                                 | Sign in
-                        li
-                            a(href='/contact') contact
-                        li
-                            a(href='/about') about
