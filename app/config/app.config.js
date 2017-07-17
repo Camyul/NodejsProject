@@ -9,7 +9,6 @@ const bodyParser = require('body-parser');
 const configApp = (app) => {
     app.set('view engine', 'pug');
 
-    console.log('config App');
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
 

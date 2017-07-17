@@ -16,7 +16,7 @@ const users = {
             usersList.find((u) => u.id === id);
         return new Promise((resolve, reject) => {
             if (!user) {
-                return reject('User not found! - this');
+                return reject('User not found!');
             }
 
             return resolve(user);

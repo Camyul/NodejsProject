@@ -18,7 +18,7 @@ const attach = (app) => {
             passport.authenticate('local', {
                 successRedirect: '/profile',
                 failureRedirect: '/auth/sign-in',
-                failureFlash: true,
+                failureFlash: false,
             })
         );
     app.use('/auth', router);

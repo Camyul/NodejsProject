@@ -21,7 +21,7 @@
        ));
 
        app.use(cookieParser());
-       app.use(session({ secret: 'Purple Unicorn' }));
+       app.use(session({ secret: 'Purple Unicorn' })); // DO: Remove deprecated
        app.use(passport.initialize());
        app.use(passport.session());
 
