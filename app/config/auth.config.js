@@ -2,6 +2,9 @@
    const cookieParser = require('cookie-parser');
    const session = require('express-session');
    const LocalStrategy = require('passport-local').Strategy;
+   const FacebookStrategy = require('passport-facebook').Strategy;
+   const User = require('../models/user.model');
+
 
    const configAuth = (app, { users }) => {
        passport.use(new LocalStrategy(
@@ -19,6 +22,17 @@
                    });
            }
        ));
+       passport.use(new FacebookStrategy({
+            clientID: 1361749477276570,
+            clientSecret: '8cdef8b7c1db62927f19a2ad817423c6',
+            callbackURL: '/auth/facebook/callback',
+        },
+        function(accessToken, refreshToken, profile, cb) {
+            User.findOrCreate({ facebookId: profile.id }, function(err, user) {
+                return cb(err, user);
+            });
+        }
+        ));
 
        app.use(cookieParser());
        app.use(session({ secret: 'Purple Unicorn' })); // DO: Remove deprecated

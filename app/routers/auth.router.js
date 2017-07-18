@@ -1,5 +1,8 @@
 const { Router } = require('express');
 const passport = require('passport');
+const database = require('../config/database');
+
+const db = database();
 
 const attach = (app) => {
     const router = new Router();
@@ -20,7 +23,23 @@ const attach = (app) => {
                 failureRedirect: '/auth/sign-in',
                 failureFlash: false,
             })
-        );
+        )
+        .post('sign-up', (req, res) => {
+            // const username = req.body.username;
+            // const email = req.body.email;
+            // const name = req.body.name;
+            // const password = req.body.password;
+        })
+        .get('/facebook',
+            passport.authenticate('facebook'))
+        .get('/facebook/callback',
+            passport.authenticate('facebook', { failureRedirect: '/login' }),
+            function(req, res) {
+                // Successful authentication, redirect home.
+                res.redirect('/');
+        });
+
+
     app.use('/auth', router);
 };
 

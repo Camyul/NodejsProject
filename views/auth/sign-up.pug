@@ -5,7 +5,7 @@ block body
     .row.main
       .main-login.main-center#sign
         h5 Sign up and use our traveling platform
-        form(method='post', action='#')
+        form(method='post', action='/auth/sign-up')
           .form-group
             label.cols-sm-2.control-label(for='name') Your Name
             .cols-sm-10
@@ -42,4 +42,4 @@ block body
                   i.fa.fa-lock.fa-lg(aria-hidden='true')
                 input#confirm.form-control(type='password', name='confirm', placeholder='Confirm your Password')
           .form-group
-            a#button.btn.btn-primary.btn-lg.btn-block.login-button(href='/#', target='_blank', type='button') REGISTER
+            input#button.btn.btn-primary.btn-lg.btn-block.login-button(type='submit', value='SIGN IN')

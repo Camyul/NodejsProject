@@ -4,14 +4,15 @@ const MongoClient = mongodb.MongoClient;
 
 const url = 'mongodb://localhost:27017/sampleDB';
 
-function database() {
+const database = () => {
     MongoClient.connect(url, function(err, db) {
         if (err) {
             console.log('Unable to connect to server', err);
         } else {
-            console.log('Successful connection to database.');
             const collection = db.collection('users');
-
+            if (collection) {
+                console.log('Collection found!');
+            }
             const sample = {
                 'name': 'test-destination',
             };
@@ -27,6 +28,6 @@ function database() {
             });
         }
     });
-}
+};
 
 module.exports = database;

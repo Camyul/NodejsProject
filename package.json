@@ -9,19 +9,20 @@
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
     "cookie-parser": "^1.4.3",
+    "eslint": "^4.2.0",
     "express": "^4.15.3",
     "express-session": "^1.15.3",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
     "mongodb": "^2.2.30",
     "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
     "passport-localapikey": "0.0.3",
     "pug": "^2.0.0-rc.2",
     "toastr": "^2.1.2"
   },
   "devDependencies": {
-    "eslint": "^4.2.0",
     "eslint-config-google": "^0.9.1"
   }
 }
