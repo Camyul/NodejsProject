@@ -5,32 +5,25 @@ const attach = (app) => {
 
     router
         .get('/', (req, res) => {
-            return res.render('home');
+            return res.status(200).render('home');
             // .send('---Root---');
         })
         .get('/profile', (req, res) => {
-            return res.send('---Profile---');
-        })
-        .get('/auth/sign-up', (req, res) => {
-            return res.render('sign-up');
-        })
-        .get('/profile', (req, res) => {
-            return res.send('---Profile---');
+            if (!req.isAuthenticated()) {
+                res.status(401).render('./profile/unauthorized');
+            } else {
+                res.status(200).render('./profile/profile');
+            }
         })
         .get('/contact', (req, res) => {
             return res.render('contact');
         })
-        .get('/about', (req, res) => {
-            return res.render('about');
+        .get('/offers', (req, res) => {
+            return res.render('offers');
+        })
+        .get('/destinations', (req, res) => {
+            return res.render('destinations');
         });
-    // .post("/register", );
-
-    // .get("/login", );
-    // .post("/login", );
-
-    // .get("/logout", );
-
-
     app.use('/', router);
 };
 
