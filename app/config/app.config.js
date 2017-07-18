@@ -6,7 +6,7 @@ const express = require('express');
 
 const bodyParser = require('body-parser');
 
-const configApp = (app) => {
+const applyTo = (app) => {
     app.set('view engine', 'pug');
 
     app.use(bodyParser.json());
@@ -21,4 +21,4 @@ const configApp = (app) => {
     );
 };
 
-module.exports = configApp;
+module.exports = { applyTo };

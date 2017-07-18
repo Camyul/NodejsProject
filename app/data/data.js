@@ -1,14 +1,16 @@
-const usersList = [{
-    username: 'Simo',
-    password: 'simosimo',
-    id: 1,
-}, {
-    username: 's',
-    password: 's',
-    id: 2,
-}];
+// const ItemsData = require('./items.data');
+const UsersData = require('./users.data');
 
-const users = {
+const init = (db) => {
+    return Promise.resolve({
+        // items: new ItemsData(db),
+        users: new UsersData(db),
+    });
+};
+
+module.exports = { init };
+
+/* const users = {
     findById(id) {
         console.log(`findById - ${id}`);
         id = +id;
@@ -34,8 +36,4 @@ const users = {
             return resolve(user);
         });
     },
-};
-
-module.exports = {
-    users,
-};
+}; */

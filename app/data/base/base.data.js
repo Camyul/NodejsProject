@@ -79,7 +79,6 @@ class BaseMongoDbData {
             return this.ModelClass.name.toLowerCase() + 's';
         }
         return this.ModelClass;
-        
     }
 }
 

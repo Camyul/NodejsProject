@@ -6,7 +6,6 @@ const attach = (app) => {
     router
         .get('/', (req, res) => {
             return res.status(200).render('home');
-            // .send('---Root---');
         })
         .get('/profile', (req, res) => {
             if (!req.isAuthenticated()) {

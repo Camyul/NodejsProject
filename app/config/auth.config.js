@@ -1,62 +1,52 @@
-   const passport = require('passport');
-   const cookieParser = require('cookie-parser');
-   const session = require('express-session');
-   const LocalStrategy = require('passport-local').Strategy;
-   const FacebookStrategy = require('passport-facebook').Strategy;
-   const User = require('../models/user.model');
+const session = require('express-session');
+const passport = require('passport');
+const { Strategy } = require('passport-local');
+const MongoStore = require('connect-mongo')(session);
 
+const config = require('../../config');
 
-   const configAuth = (app, { users }) => {
-       passport.use(new LocalStrategy(
-           (username, password, done) => {
-               return users.findByUsername(username)
-                   .then((user) => {
-                       if (user.password === password) {
-                           done(null, user);
-                       } else {
-                           done(null, false);
-                       }
-                   })
-                   .catch((err) => {
-                       return done(err);
-                   });
-           }
-       ));
-       passport.use(new FacebookStrategy({
-            clientID: 1361749477276570,
-            clientSecret: '8cdef8b7c1db62927f19a2ad817423c6',
-            callbackURL: '/auth/facebook/callback',
-        },
-        function(accessToken, refreshToken, profile, cb) {
-            User.findOrCreate({ facebookId: profile.id }, function(err, user) {
-                return cb(err, user);
+const applyTo = (app, data) => {
+    passport.use(new Strategy((username, password, done) => {
+        data.users.checkPassword(username, password)
+            .then(() => {
+                return data.users.findByUsername(username);
+            })
+            .then((user) => {
+                done(null, user);
+            })
+            .catch((err) => {
+                done(err);
             });
-        }
-        ));
+    }));
 
-       app.use(cookieParser());
-       app.use(session({ secret: 'Purple Unicorn' })); // DO: Remove deprecated
-       app.use(passport.initialize());
-       app.use(passport.session());
+    app.use(session({
+        store: new MongoStore({ url: config.connectionString }),
+        secret: config.sessionSecret,
+        resave: true,
+        saveUninitialized: true,
+    }));
 
-       passport.serializeUser((user, done) => {
-           done(null, user.id);
-       });
+    app.use(passport.initialize());
+    app.use(passport.session());
 
-       passport.deserializeUser((id, done) => {
-           return users.findById(id)
-               .then((user) => {
-                   done(null, user);
-               })
-               .catch(done);
-       });
+    passport.serializeUser((user, done) => {
+        done(null, user._id);
+    });
 
-       app.use((req, res, next) => {
-           res.locals = res.locals || {};
+    passport.deserializeUser((id, done) => {
+        data.users.findById(id)
+            .then((user) => {
+                done(null, user);
+            }).catch(done);
+    });
 
-           res.locals.user = req.user;
-           next();
-       });
-   };
+    app.use((req, res, next) => {
+        res.locals = {
+            user: req.user,
+        };
 
-   module.exports = configAuth;
+        next();
+    });
+};
+
+module.exports = { applyTo };

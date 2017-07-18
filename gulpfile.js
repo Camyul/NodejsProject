@@ -2,11 +2,20 @@ const gulp = require('gulp');
 
 const nodemon = require('gulp-nodemon');
 
-const PORT = 3001;
+const async = () => {
+    return Promise.resolve();
+};
+
+const config = require('./config');
 
 gulp.task('server', () => {
-    const app = require('./app');
-    app.listen(PORT, () => console.log(`It works at: ${PORT}`));
+    async().then(() => require('./app/db').init(config.connectionString))
+        .then((db) => require('./app/data').init(db))
+        .then((data) => require('./app').init(data))
+        .then((app) => {
+            app.listen(config.port,
+                () => console.log(`It Works at: ${config.port}`));
+        });
 });
 
 gulp.task('dev', ['server'], () => {
