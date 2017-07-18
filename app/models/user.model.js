@@ -1,4 +1,4 @@
-const db = require('../config/database');
+const db = require('../db/db');
 const UserData = require('../data/users.data');
 
 class User extends UserData {
@@ -19,19 +19,6 @@ class User extends UserData {
             });
 
         return viewModel;
-    }
-
-    static findOrCreate(profile, cb) {
-        const userObj = new this();
-        this
-            .findById({ id: profile.id }, function(err, result) {
-            if (!result) {
-                userObj.username = profile.displayName;
-                userObj.save(cb);
-            } else {
-                cb(err, result);
-            }
-        });
     }
 }
 

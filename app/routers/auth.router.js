@@ -1,8 +1,6 @@
 const { Router } = require('express');
 const passport = require('passport');
-const database = require('../config/database');
-
-const db = database();
+const database = require('../db/db');
 
 const attach = (app) => {
     const router = new Router();
@@ -24,11 +22,12 @@ const attach = (app) => {
                 failureFlash: false,
             })
         )
-        .post('sign-up', (req, res) => {
-            // const username = req.body.username;
-            // const email = req.body.email;
-            // const name = req.body.name;
-            // const password = req.body.password;
+        .post('/sign-up', (req, res) => {
+            database.init('mongodb://localhost:27017/sampleDB')
+                .then((db) => {
+                    console.log('POST request connected');
+                    console.log(db.collection('users'));
+                });
         })
         .get('/facebook',
             passport.authenticate('facebook'))

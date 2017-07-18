@@ -1,5 +1,5 @@
 const express = require('express');
-const database = require('./config/database');
+const database = require('./db/db');
 
 const app = express();
 
@@ -13,7 +13,6 @@ app.use((req, res, next) => {
 });
 
 require('./routers')(app);
-database();
 
 app.get('*', (req, res) => {
     res.status(404)
