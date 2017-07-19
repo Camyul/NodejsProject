@@ -1,32 +1,6 @@
 const { Router } = require('express');
 const data = require('../db/db');
 
-const offers = [{
-    destination: {
-        country: 'Greece',
-        city: 'Rhodes',
-    },
-    price: '1250.00EUR',
-    duration: '7 days',
-    startDate: new Date(),
-}, {
-    destination: {
-        country: 'Greece',
-        city: 'Athens',
-    },
-    price: '2000.00EUR',
-    duration: '5 days',
-    startDate: new Date(),
-}, {
-    destination: {
-        country: 'Bulgaria',
-        city: 'Slunchaka',
-    },
-    price: '300.00EUR',
-    duration: '10 days',
-    startDate: new Date(),
-}];
-
 const attach = (app) => {
     const router = new Router();
 
@@ -44,12 +18,6 @@ const attach = (app) => {
         })
         .get('/contact', (req, res) => {
             return res.render('contact');
-        })
-        .get('/offers', (req, res) => {
-            return res.render('offers', { offers });
-        })
-        .get('/destinations', (req, res) => {
-            return res.render('destinations');
         });
     app.use('/', router);
 };

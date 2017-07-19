@@ -15,6 +15,9 @@ gulp.task('server', () => {
         .then((app) => {
             app.listen(config.port,
                 () => console.log(`It Works at: ${config.port}`));
+        })
+        .catch((err) => {
+            console.log(err);
         });
 });
 
