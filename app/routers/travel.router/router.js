@@ -95,13 +95,13 @@ const attach = (app) => {
     const router = new Router();
 
     router
-        .get('../offers', (req, res) => {
+        .get('/offers', (req, res) => {
             return res.render('offers', { offers });
         })
-        .get('/', (req, res) => {
+        .get('/destinations', (req, res) => {
             return res.render('destinations', { citiesGreece, citiesBulgaria });
         });
-    app.use('/destinations', router);
+    app.use('/', router);
 };
 
 module.exports = attach;
