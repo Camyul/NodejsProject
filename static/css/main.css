@@ -1,6 +1,24 @@
-/*
- * General styles
- */
+/* --- ESSENTIALS --- */
+
+
+/* Remove default margin and padding from every element */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Includes padding, margins with width and height of elements */
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/* --- GENERAL STYLES --- */
 
 #playground-container {
     height: 500px;
@@ -108,4 +126,39 @@ span.input-group-addon i {
 #user,
 #signout {
     color: black;
+}
+
+
+/* --- OFFERS --- */
+
+#offers-container {
+    background: url('../assets/images/offers-background.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Bellefair', monospace;
+}
+
+.offer {
+    background: rgba(240, 240, 240, 0.6);
+    margin: 20px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    padding: 10px;
+    -webkit-transition: background 2s;
+    /* Safari */
+    transition: background 2s;
+}
+
+.offer:hover {
+    background: #708090;
+    cursor: pointer;
+}
+
+#country,
+#city {
+    color: darkblue;
 }

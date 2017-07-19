@@ -25,17 +25,7 @@ const attach = (app, data) => {
         )
         .post('/sign-up', (req, res) => {
             return controller.signUp(req, res);
-        })
-        .get('/facebook',
-            passport.authenticate('facebook'))
-        .get('/facebook/callback',
-            passport.authenticate('facebook', { failureRedirect: '/login' }),
-            function(req, res) {
-                // Successful authentication, redirect home.
-                res.redirect('/');
-            });
-
-
+        });
     app.use('/auth', router);
 };
 

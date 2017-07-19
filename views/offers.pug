@@ -2,8 +2,29 @@ extend shared/_master
 
 block body
     section.section-background
-    .container
+    .container#offers-container
         h2.page-header 
         |
         section.section-wrapper#main-heading
-            h1 TO DO
+            .row.offersList
+                each offer in offers
+                    .col-md-4.col-sm-6
+                        .media.offer
+                            #destination
+                                h3#city=offer.destination.city
+                                h4#country
+                                    |(
+                                    =offer.destination.country
+                                    |)
+                            #price=offer.price
+                            #duration=offer.duration
+                            #startDate  Starts at: 
+                                =offer.startDate.getDate()
+                                |  -  
+                                =offer.startDate.getMonth()
+                                |  -  
+                                =offer.startDate.getFullYear()
+                            button(type="button" class="btn btn-primary") SIGN ME UP
+                else
+                    h1 No current Offers.
+                        a(href='/addOffer') Are you a member? Add one!
