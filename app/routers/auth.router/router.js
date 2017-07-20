@@ -3,7 +3,7 @@ const passport = require('passport');
 
 const attach = (app, data) => {
     const router = new Router();
-    const controller = require('./controller').init(data);
+    const controller = require('./userController').init(data);
 
     router
         .get('/sign-up', (req, res) => {
