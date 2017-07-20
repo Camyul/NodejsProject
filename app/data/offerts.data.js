@@ -1,5 +1,5 @@
 const BaseData = require('./base/base.data');
-const Offert = require('../models/offert.model');
+const Offert = require('../../models/offer.model');
 
 class OffertsData extends BaseData {
     constructor(db) {

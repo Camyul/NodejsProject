@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const data = require('../db/db');
 
 const attach = (app) => {
     const router = new Router();
@@ -12,7 +11,6 @@ const attach = (app) => {
             if (!req.isAuthenticated()) {
                 res.status(401).render('./profile/unauthorized');
             } else {
-                console.log(req.body.user);
                 res.status(200).render('./profile/profile');
             }
         })

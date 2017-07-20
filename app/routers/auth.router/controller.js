@@ -1,5 +1,3 @@
-const passport = require('passport');
-
 class UserController {
     constructor(data) {
         this.data = data;

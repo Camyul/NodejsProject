@@ -7,24 +7,20 @@ block body
         |
         section.section-wrapper#main-heading
             .row.offersList
-                each offer in offers
+                each offer in context
                     .col-md-4.col-sm-6
                         .media.offer
                             #destination
-                                h3#city=offer.destination.city
+                                h3#city=offer.city
                                 h4#country
                                     |(
-                                    =offer.destination.country
+                                    =offer.country
                                     |)
-                            #price=offer.price
+                            #price=offer.price + ' €'
                             #duration=offer.duration
                             #startDate  Starts at: 
-                                =offer.startDate.getDate()
-                                |  -  
-                                =offer.startDate.getMonth()
-                                |  -  
-                                =offer.startDate.getFullYear()
+                                =offer.date
                             button(type="button" class="btn btn-primary") SIGN ME UP
                 else
                     h1 No current Offers.
-                        a(href='/addOffer') Are you a member? Add one!
+                        a(href='/createofferts') Are you a member? Add one!

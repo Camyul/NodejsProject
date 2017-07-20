@@ -23,7 +23,6 @@ class BaseMongoDbData {
                         (model) => this.ModelClass.toViewModel(model)
                     );
                 }
-
                 return models;
             });
     }
@@ -78,6 +77,7 @@ class BaseMongoDbData {
         if (this.ModelClass.name) {
             return this.ModelClass.name.toLowerCase() + 's';
         }
+
         return this.ModelClass;
     }
 }

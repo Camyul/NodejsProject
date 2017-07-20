@@ -6,6 +6,7 @@ const attach = (app, data) => {
 
     router
         .get('/offers', (req, res) => {
+            // auth
             return controller.getOfferts(req, res);
         })
         .get('/destinations', (req, res) => {

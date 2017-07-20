@@ -1,8 +1,8 @@
-const BaseData = require('../data/base/base.data');
-
-class Offert extends BaseData {
+class Offert {
     static isValid(model) {
-        return true;
+        return typeof model !== 'undefined' &&
+            typeof model.text === 'string' &&
+            model.text.length > 3;
     }
 
     get id() {

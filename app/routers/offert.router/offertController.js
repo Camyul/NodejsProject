@@ -1,4 +1,4 @@
-const offers = [{
+/* const offers = [{
     destination: {
         country: 'Greece',
         city: 'Rhodes',
@@ -86,7 +86,7 @@ const citiesBulgaria = [{
         'See the ancient castle.',
         'Relax on the calm beaches.',
     ],
-}];
+}]; */
 
 class OffertController {
     constructor(data) {
@@ -94,12 +94,17 @@ class OffertController {
     }
 
     getOfferts(req, res) {
-        return res.status(200).render('offers', { offers });
-    }
-    getDestinations(req, res) {
-        return res.status(200)
-            .render('destinations', { citiesGreece, citiesBulgaria });
-    }
+            return this.data.offerts.getAll()
+                .then((offers) => {
+                    return res.render('offers', {
+                        context: offers,
+                    });
+                });
+        }
+        /* getDestinations(req, res) {
+            return res.status(200)
+                .render('destinations', { citiesGreece, citiesBulgaria });
+        } */
     getCreateOffert(req, res) {
         if (!req.isAuthenticated()) {
             res.status(401).render('./profile/unauthorized');
