@@ -71,7 +71,7 @@ const citiesGreece = [{
 
 const citiesBulgaria = [{
     country: 'Bulgaria',
-    name: 'Sunny Beach',
+    name: 'Slunchaka',
     imagePath: '../../static/assets/images/slunchaka/',
     toDos: [
         'Party all night',
@@ -99,7 +99,13 @@ const attach = (app) => {
             return res.render('offers', { offers });
         })
         .get('/destinations', (req, res) => {
-            return res.render('destinations', { citiesGreece, citiesBulgaria });
+            return res.render('destinations');
+        }).get('/destinations/bulgaria', (req, res) => {
+            return res.render(
+                'destinationViews\\bulgaria', { citiesBulgaria });
+        }).get('/destinations/greece', (req, res) => {
+            return res.render(
+                'destinationViews\\greece', { citiesGreece });
         });
     app.use('/', router);
 };
