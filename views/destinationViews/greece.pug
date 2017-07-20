@@ -1,0 +1,55 @@
+extends ../shared/_master
+
+block body
+    section.section-background
+    .container
+        h2.page-header 
+        |
+        section.section-wrapper
+            div
+                // Nav tabs
+                ul.nav.nav-tabs(role='tablist')
+                    each city, index in citiesGreece
+                        - var link = "#" + city.name
+                        if index == 0
+                            li.active(role='presentation')
+                                a(href=link, aria-controls=city.name, role='tab', data-toggle='tab') 
+                                    =city.name
+                        else
+                            li(role='presentation')
+                                a(href=link, aria-controls=city.name, role='tab', data-toggle='tab') 
+                                    =city.name
+                    //- li.active(role='presentation')
+                    //-     a(href='#home', aria-controls='home', role='tab', data-toggle='tab') Home
+                    //- li(role='presentation')
+                    //-     a(href='#profile', aria-controls='profile', role='tab', data-toggle='tab') Profile
+                    //- li(role='presentation')
+                    //-     a(href='#messages', aria-controls='messages', role='tab', data-toggle='tab') Messages
+                    //- li(role='presentation')
+                    //-     a(href='#settings', aria-controls='settings', role='tab', data-toggle='tab') Settings
+                // Tab panes
+                .tab-content
+                    each city, index in citiesGreece
+                        if index == 0
+                            .tab-pane.active.fade.in(id=city.name, role='tabpannel')
+                                .currentCity.jumbotron
+                                    h1#cityName
+                                        =city.name
+                                    hr
+                                    p
+                                        | Make frontend for the gallery and to-do list. Improve styling   
+                        else
+                            .tab-pane.fade(id=city.name, role='tabpannel')
+                                .currentCity.jumbotron
+                                    h1#cityName
+                                        =city.name
+                                    hr
+                                    p
+                                        | Make frontend for the gallery and to-do list. Improve styling                  
+                    //- #home.tab-pane.active.fade.in(role='tabpanel')
+                    //- #profile.tab-pane.fade(role='tabpanel') Profile
+                    //- #messages.tab-pane.fade(role='tabpanel') Messages
+                    //- #settings.tab-pane.fade(role='tabpanel') Settings
+
+block body_end_scripts
+    script(src='../../static/js/country.js')

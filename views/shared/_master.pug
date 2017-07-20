@@ -27,10 +27,21 @@ head
         script(src='/static/assets/js/toastr.min.js')
     title Euro Travels
 body
-    .nav
+    .nav#header
         +nav
     if err
         h1
             =err
     block body
+    footer
+        .container
+            .row
+            .col-xs-6
+                .text-left
+                a(href='https://github.com/Express7/NodejsProject' id='footerLink')
+                    | © Copyright EuroTravel 2017
+            .col-xs-6
+                .top
+                a(href='#header')
+                    i.ion-arrow-up-b
     block body_end_scripts

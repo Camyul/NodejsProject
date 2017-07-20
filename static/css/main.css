@@ -20,6 +20,10 @@
 
 /* --- GENERAL STYLES --- */
 
+#footerLink:hover {
+    color: blue;
+}
+
 #playground-container {
     height: 500px;
     overflow: hidden !important;
@@ -230,6 +234,18 @@ span.input-group-addon i {
     -o-background-size: cover;
     background-size: cover;
 }
+
+.currentCity {
+    font-family: 'Bellefair', monospace;
+}
+
+#cityName {
+    color: black;
+    text-align: center;
+}
+
+
+/* --- ANIMATIONS --- */
 
 @keyframes neon2 {
     from {
