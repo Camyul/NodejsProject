@@ -7,22 +7,19 @@ const attach = (app, data) => {
 
     router
         .get('/sign-up', (req, res) => {
-            return res.status(200).render('./auth/sign-up');
+            return controller.getSignUpForm(req, res);
         })
         .get('/sign-in', (req, res) => {
-            return res.status(200).render('./auth/sign-in');
+            return controller.getSignInForm(req, res);
         })
         .get('/sign-out', (req, res) => {
-            req.logout();
-            res.redirect('/');
+            return controller.signOut(req, res);
         })
-        .post('/sign-in',
-            passport.authenticate('local', {
-                successRedirect: '/profile',
-                failureRedirect: '/auth/sign-in',
-                failureFlash: false,
-            })
-        )
+        .post('/sign-in', passport.authenticate('local', {
+            successRedirect: '/profile',
+            failureRedirect: '/auth/sign-in',
+            failureFlash: false,
+        }))
         .post('/sign-up', (req, res) => {
             return controller.signUp(req, res);
         });

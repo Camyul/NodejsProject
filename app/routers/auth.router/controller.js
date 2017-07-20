@@ -1,19 +1,20 @@
-class Controller {
+const passport = require('passport');
+
+class UserController {
     constructor(data) {
         this.data = data;
     }
 
     getSignUpForm(req, res) {
-        return res.render('auth/sign-up');
+        return res.status(200).render('auth/sign-up');
     }
     getSignInForm(req, res) {
-        return res.render('auth/sign-in');
+        return res.status(200).render('./auth/sign-in');
     }
     signOut(req, res) {
         req.logout();
-        return res.redirect('/');
+        return res.status(200).redirect('/');
     }
-
     signUp(req, res) {
         const bodyUser = req.body;
         this.data.users.findByUsername(bodyUser.username)
@@ -34,7 +35,7 @@ class Controller {
 }
 
 const init = (data) => {
-    return new Controller(data);
+    return new UserController(data);
 };
 
 module.exports = { init };
