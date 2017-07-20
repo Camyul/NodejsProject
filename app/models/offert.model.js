@@ -1,6 +1,6 @@
-const UserData = require('../data/users.data');
+const BaseData = require('../data/base/base.data');
 
-class User extends UserData {
+class Offert extends BaseData {
     static isValid(model) {
         return true;
     }
@@ -10,7 +10,7 @@ class User extends UserData {
     }
 
     static toViewModel(model) {
-        const viewModel = new User();
+        const viewModel = new Offert();
 
         Object.keys(model)
             .forEach((prop) => {
@@ -21,4 +21,4 @@ class User extends UserData {
     }
 }
 
-module.exports = User;
+module.exports = Offert;

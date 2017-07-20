@@ -3,9 +3,12 @@
 const path = require('path');
 const fs = require('fs');
 const attachRoutes = (app, data) => {
-    require('./users.router')(app, data);
-    require('./auth.router/router')(app, data);
-    require('./travel.router/router')(app, data);
+    fs.readdirSync(__dirname)
+        .filter((file) => file.includes('.router'))
+        .map((file) => path.join(__dirname, file))
+        .forEach((modulePath) => {
+            require(modulePath)(app, data);
+        });
 };
 
 module.exports = attachRoutes;
