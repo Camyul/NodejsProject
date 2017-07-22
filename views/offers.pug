@@ -1,7 +1,38 @@
 extend shared/_master
 
+block head_scripts
+        script(src="https://rawgit.com/bassjobsen/Bootstrap-3-Typeahead/master/bootstrap3-typeahead.js")
+        link(rel="stylesheet", href="/libs/typeahead/style.css")
+        script(src="/static/js/offers.js")
+
 block body
-    section.section-background
+
+ section.tour.section-wrapper.container
+  h2.section-title
+    | Find a Tour
+  p.section-subtitle
+    | Where would you like to go?
+  .row
+    .col-md-3.col-sm-6
+      form.form-dropdown(role='form' name="category")
+        .form-group
+          label(for='sel1') Select Country:
+          input#autocompleteCountry.form-control.border-radius
+    .col-md-3.col-sm-6
+      form.form-dropdown(role='form')
+        .form-group
+          label(for='sel2') Select city:
+          input#autocompleteCity.form-control.border-radius
+    .col-md-3.col-sm-6
+      .input-group
+        input#sel3.form-control.border-radius.border-right(type='date', placeholder='Arrival')
+        span.input-group-addon.border-radius.custom-addon
+          i.ion-ios-calendar
+    .col-md-3.col-sm-6
+      .btn.btn-default.border-radius.custom-button
+        | Search
+
+ section.section-background
     .container#offers-container
         h2.page-header 
         |

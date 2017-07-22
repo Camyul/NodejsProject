@@ -1,6 +1,7 @@
 extend shared/_master
 
 block body
+
  #header
   .flexslider
     ul.slides
@@ -12,8 +13,8 @@ block body
               |  always "good idea"
             p.header-sub-title
               | it leaves you speechless, then turns you into a storyteller.
-            button.btn.custom-btn
-              | Travel Now
+            a.btn.custom-btn(href='/offers')
+               | Travel Now
       li.slider-item(style="background-image: url('/static/assets/images/item-2.png')")
         .intro
           .inner-intro
@@ -24,40 +25,8 @@ block body
               span live
             p.header-sub-title
               | it leaves you speechless, then turns you into a storyteller.
-            button.btn.custom-btn
-              | Travel Now
- section.tour.section-wrapper.container
-  h2.section-title
-    | Find a Tour
-  p.section-subtitle
-    | Where would you like to go?
-  .row
-    .col-md-3.col-sm-6
-      form.form-dropdown(role='form')
-        .form-group
-          label(for='sel1') Select list (select one):
-          select#sel1.form-control.border-radius
-            option America
-            option Bangladesh
-            option Canada
-            option India
-    .col-md-3.col-sm-6
-      form.form-dropdown(role='form')
-        .form-group
-          label(for='sel2') Select list (select one):
-          select#sel2.form-control.border-radius
-            option America
-            option Bangladesh
-            option Canada
-            option India
-    .col-md-3.col-sm-6
-      .input-group
-        input.form-control.border-radius.border-right(type='date', placeholder='Arrival')
-        span.input-group-addon.border-radius.custom-addon
-          i.ion-ios-calendar
-    .col-md-3.col-sm-6
-      .btn.btn-default.border-radius.custom-button
-        | Search
+            a.btn.custom-btn(href='/offers')
+               | Travel Now
 
  section.visit.section-wrapper
   .container
