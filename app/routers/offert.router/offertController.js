@@ -94,17 +94,21 @@ class OffertController {
     }
 
     getOfferts(req, res) {
-            return this.data.offerts.getAll()
-                .then((offers) => {
-                    return res.render('offers', {
-                        context: offers,
-                    });
+        return this.data.offerts.getAll()
+            .then((offers) => {
+                return res.render('offers', {
+                    context: offers,
                 });
-        }
-        /* getDestinations(req, res) {
-            return res.status(200)
-                .render('destinations', { citiesGreece, citiesBulgaria });
-        } */
+            });
+    }
+    getDestinations(req, res) {
+        return this.data.destinations.getAll()
+            .then((destinations) => {
+                return res.render('destinations', {
+                    context: destinations,
+                });
+            });
+    }
     getCreateOffert(req, res) {
         if (!req.isAuthenticated()) {
             res.status(401).render('./profile/unauthorized');
@@ -120,6 +124,7 @@ class OffertController {
                 return res.redirect('/offers');
             })
             .catch((err) => {
+                console.log(err);
                 return res.redirect('/createoffert');
             });
     }

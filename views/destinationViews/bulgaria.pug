@@ -36,9 +36,8 @@ block body
                                     h1#cityName
                                         =city.name
                                     hr
-                                    p
-                                        | Make frontend for the gallery and to-do list. Improve styling                                    
-                                    
+                                    ul.list-group
+                                        each todo in citiesBulgaria.todo
                         else
                             .tab-pane.fade(id=city.name, role='tabpannel')
                                 .currentCity.jumbotron
@@ -47,10 +46,6 @@ block body
                                     hr
                                     p
                                         | Make frontend for the gallery and to-do list. Improve styling                       
-                    //- #home.tab-pane.active.fade.in(role='tabpanel')
-                    //- #profile.tab-pane.fade(role='tabpanel') Profile
-                    //- #messages.tab-pane.fade(role='tabpanel') Messages
-                    //- #settings.tab-pane.fade(role='tabpanel') Settings
 
 block body_end_scripts
     script(src='../../static/js/country.js')

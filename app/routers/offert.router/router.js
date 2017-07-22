@@ -13,6 +13,9 @@ const attach = (app, data) => {
             return controller.getDestinations(req, res);
         })
         .get('/createoffert', (req, res) => {
+            if (!req.isAuthenticated()) {
+                return res.status(401).render('./profile/unauthorized');
+            }
             return controller.getCreateOffert(req, res);
         })
         .post('/createoffert', (req, res) => {
