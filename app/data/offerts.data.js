@@ -10,12 +10,9 @@ class OffertsData extends BaseData {
 
     _isModelValid(model) {
         if (!(supportedCountries.includes(model.country.toLowerCase()))) {
-            console.log('failed at country validation');
             return false;
         }
         if (model.city.length < 3) {
-            console.log('failed at city validation');
-
             return false;
         }
         if (isNaN(model.price)) {
@@ -23,12 +20,9 @@ class OffertsData extends BaseData {
             return false;
         }
         if (isNaN(model.duration) || model.duration < 1) {
-            console.log('failed at duration validation');
-
             return false;
         }
         if (!(model.date.match(dateMatcher))) {
-            console.log('failed at date validation');
             console.log(model.date);
             return false;
         }
