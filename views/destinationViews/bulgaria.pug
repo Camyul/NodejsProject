@@ -19,14 +19,6 @@ block body
                             li(role='presentation')
                                 a(href=link, aria-controls=city.name, role='tab', data-toggle='tab') 
                                     =city.name
-                    //- li.active(role='presentation')
-                    //-     a(href='#home', aria-controls='home', role='tab', data-toggle='tab') Home
-                    //- li(role='presentation')
-                    //-     a(href='#profile', aria-controls='profile', role='tab', data-toggle='tab') Profile
-                    //- li(role='presentation')
-                    //-     a(href='#messages', aria-controls='messages', role='tab', data-toggle='tab') Messages
-                    //- li(role='presentation')
-                    //-     a(href='#settings', aria-controls='settings', role='tab', data-toggle='tab') Settings
                 // Tab panes
                 .tab-content
                     each city, index in citiesBulgaria
