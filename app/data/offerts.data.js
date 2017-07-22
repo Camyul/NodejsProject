@@ -12,18 +12,16 @@ class OffertsData extends BaseData {
         if (!(supportedCountries.includes(model.country.toLowerCase()))) {
             return false;
         }
-        if (model.city.length < 3) {
+        if (model.city.trim().length < 3) {
             return false;
         }
         if (isNaN(model.price)) {
-            console.log(model.price);
             return false;
         }
         if (isNaN(model.duration) || model.duration < 1) {
             return false;
         }
         if (!(model.date.match(dateMatcher))) {
-            console.log(model.date);
             return false;
         }
         return true;

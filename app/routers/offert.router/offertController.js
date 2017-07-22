@@ -102,7 +102,7 @@ class OffertController {
             });
     }
     getDestinations(req, res) {
-        return this.data.destinations.getAll()
+        return this.data.destinations.getAll() // ????
             .then((destinations) => {
                 return res.render('destinations', {
                     context: destinations,
