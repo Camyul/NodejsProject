@@ -12,10 +12,10 @@ const attach = (app, data) => {
         .get('/destinations', (req, res) => {
             return controller.getDestinations(req, res);
         })
+        .get('/myoffers', (req, res) => {
+            return controller.getMyOfferts(req, res);
+        })
         .get('/createoffert', (req, res) => {
-            if (!req.isAuthenticated()) {
-                return res.status(401).render('./profile/unauthorized');
-            }
             return controller.getCreateOffert(req, res);
         })
         .post('/createoffert', (req, res) => {

@@ -1,0 +1,28 @@
+extend shared/_master
+
+block body
+
+ section.section-background
+    .container#offers-container
+        h2.page-header 
+        |
+        section.section-wrapper#main-heading
+            .row.offersList
+                each offer in context
+                    .col-md-4.col-sm-6
+                        .media.offer
+                            #offer-id.hidden=offer.id
+                            #destination
+                                h3#city=offer.city
+                                h4#country
+                                    |(
+                                    =offer.country
+                                    |)
+                            #price=offer.price + ' €'
+                            #duration=offer.duration + ' days'
+                            #startDate  Starts at: 
+                                =offer.date
+                            a(href='/myoffers' type="button" class="btn btn-danger") REMOVE
+                else
+                    h1 No current Offers.
+                        a(href='/createoffert') Are you a member? Add one!

@@ -7,6 +7,8 @@ const init = (data) => {
     require('./config/app.config').applyTo(app);
     require('./config/auth.config').applyTo(app, data);
 
+    app.use(require('connect-flash')());
+
     app.use((req, res, next) => {
         next();
     });

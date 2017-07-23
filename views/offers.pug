@@ -14,12 +14,12 @@ block body
     | Where would you like to go?
   .row
     .col-md-3.col-sm-6
-      form.form-dropdown(role='form' name="category")
+      form.form-dropdown(role='form' name="country")
         .form-group
           label(for='sel1') Select Country:
           input#autocompleteCountry.form-control.border-radius
     .col-md-3.col-sm-6
-      form.form-dropdown(role='form')
+      form.form-dropdown(role='form' name="city")
         .form-group
           label(for='sel2') Select city:
           input#autocompleteCity.form-control.border-radius
@@ -41,6 +41,7 @@ block body
                 each offer in context
                     .col-md-4.col-sm-6
                         .media.offer
+                            #offer-id.hidden=offer.id
                             #destination
                                 h3#city=offer.city
                                 h4#country
@@ -48,10 +49,9 @@ block body
                                     =offer.country
                                     |)
                             #price=offer.price + ' €'
-                            #duration=offer.duration
+                            #duration=offer.duration + ' days'
                             #startDate  Starts at: 
                                 =offer.date
-                            button(type="button" class="btn btn-primary") SIGN ME UP
                 else
                     h1 No current Offers.
                         a(href='/createoffert') Are you a member? Add one!
