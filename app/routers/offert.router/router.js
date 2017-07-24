@@ -9,9 +9,6 @@ const attach = (app, data) => {
             // auth
             return controller.getOfferts(req, res);
         })
-        .get('/destinations', (req, res) => {
-            return controller.getDestinations(req, res);
-        })
         .get('/myoffers', (req, res) => {
             return controller.getMyOfferts(req, res);
         })
