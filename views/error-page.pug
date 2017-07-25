@@ -1,0 +1,20 @@
+extend  shared/_master
+
+block body
+    .wrapper.row2
+        #container.clear
+            section#fof.clear
+                .positioned
+                    .hgroup
+                        h1 !
+                        h2
+                            | 404
+                            br
+                            |             Error
+                        p The Page You Requested Could Not Be Found On Our Server
+                        p
+                        | Go Back To The 
+                        a(href='javascript:history.go(-1)') Previous Page
+                        strong OR
+                        |  Visit Our 
+                        a(href='/') Homepage

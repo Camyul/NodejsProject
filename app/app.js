@@ -17,9 +17,7 @@ const init = (data) => {
 
     app.get('*', (req, res) => {
         res.status(404)
-            // .render('/error-page')
-            .send('<h1>Resource not found!</h1>')
-            .end();
+            .render('error-page');
     });
     return Promise.resolve(app);
 };
