@@ -17,6 +17,10 @@ const attach = (app, data) => {
         })
         .post('/createoffert', (req, res) => {
             return controller.createOffert(req, res);
+        })
+        .post('/myoffers', (req, res) => {
+            console.log('Deleting...');
+            return controller.deleteOffert(req, res);
         });
     app.use('/', router);
 };

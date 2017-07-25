@@ -10,19 +10,20 @@ block body
             .row.offersList
                 each offer in context
                     .col-md-4.col-sm-6
-                        .media.offer
-                            #offer-id.hidden=offer.id
-                            #destination
-                                h3#city=offer.city
-                                h4#country
-                                    |(
-                                    =offer.country
-                                    |)
-                            #price=offer.price + ' €'
-                            #duration=offer.duration + ' days'
-                            #startDate  Starts at: 
-                                =offer.date
-                            a(href='/myoffers' type="button" class="btn btn-danger") REMOVE
+                        form(action='/myoffers' method='post')
+                            .media.offer
+                                input(id='offer-id' class='hidden' name='_id' value=offer._id)
+                                #destination
+                                    h3#city=offer.city
+                                    h4#country
+                                        |(
+                                        =offer.country
+                                        |)
+                                #price=offer.price + ' €'
+                                #duration=offer.duration + ' days'
+                                #startDate  Starts at: 
+                                    =offer.date
+                                input(type='submit' class='btn btn-danger' value='REMOVE')
                 else
-                    h1 No current Offers.
-                        a(href='/createoffert') Are you a member? Add one!
+                    h1 You don't have any offers made yet.
+                        a(href='/createoffert') Create one?

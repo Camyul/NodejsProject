@@ -26,6 +26,28 @@ class OffertController {
             res.status(200).render('createoffert');
         }
     }
+
+    deleteOffert(req, res) {
+        const offerId = req.body._id;
+        console.log(offerId);
+
+        console.log('Deleting an offer!');
+
+        const MongoClient = require('mongodb');
+
+        MongoClient.connect('mongodb://localhost:27017/sharedTravel', function(error_, db) {
+            db.collection('offerts', {}, function(error, offerts) {
+                offerts.remove({ _id: ObjectID(offerId)}, function(err, result) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    console.log('No errors');
+                    db.close();
+                    return res.redirect('/myoffers');
+                });
+            });
+        });
+    }
     createOffert(req, res) {
         const bodyOffert = req.body;
 
