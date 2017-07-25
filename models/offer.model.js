@@ -1,4 +1,4 @@
-class offer {
+class Offer {
     static isValid(model) {
         return typeof model !== 'undefined' &&
             typeof model.text === 'string' &&
@@ -10,7 +10,7 @@ class offer {
     }
 
     static toViewModel(model) {
-        const viewModel = new offer();
+        const viewModel = new Offer();
 
         Object.keys(model)
             .forEach((prop) => {
@@ -21,4 +21,4 @@ class offer {
     }
 }
 
-module.exports = offer;
+module.exports = Offer;

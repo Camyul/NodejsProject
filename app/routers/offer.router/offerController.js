@@ -1,4 +1,4 @@
-class offerController {
+class OfferController {
     constructor(data) {
         this.data = data;
     }
@@ -37,14 +37,15 @@ class offerController {
 
         MongoClient.connect('mongodb://localhost/sharedTravel', function(error_, db) {
             db.collection('offers', {}, function(error, offers) {
-                offers.remove({ _id: ObjectID(offerId) }, function(err, result) { // TO DO: FIX
-                    if (err) {
-                        console.log(err);
-                    }
-                    console.log('No errors');
-                    db.close();
-                    return res.redirect('/myoffers');
-                });
+                offers.remove({ _id: ObjectID(offerId) }, //eslint-disable-line 
+                    function(err, result) { // TO DO: FIX
+                        if (err) {
+                            console.log(err);
+                        }
+                        console.log('No errors');
+                        db.close();
+                        return res.redirect('/myoffers');
+                    });
             });
         });
     }
@@ -92,7 +93,7 @@ class offerController {
 }
 
 const init = (data) => {
-    return new offerController(data);
+    return new OfferController(data);
 };
 
 module.exports = { init };
