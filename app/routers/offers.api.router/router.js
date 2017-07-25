@@ -5,15 +5,15 @@ const attach = (app, data) => {
 
     apiRouter
         .get('/country', (req, res) => {
-            return data.offerts.getAll()
-                .then((offert) => {
-                    return res.send(offert);
+            return data.offers.getAll()
+                .then((offer) => {
+                    return res.send(offer);
                 });
         })
         .get('/city', (req, res) => {
-            return data.offerts.getAll()
-                .then((offert) => {
-                    return res.send(offert);
+            return data.offers.getAll()
+                .then((offer) => {
+                    return res.send(offer);
                 });
         });
 

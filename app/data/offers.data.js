@@ -1,11 +1,11 @@
 const BaseData = require('./base/base.data');
-const Offert = require('../../models/offer.model');
+const offer = require('../../models/offer.model');
 const supportedCountries = ['bulgaria', 'greece'];
 const dateMatcher = new RegExp(/[0-9]{4}-[0-9]{2}-[0-9]{2}/g);
 
-class OffertsData extends BaseData {
+class offersData extends BaseData {
     constructor(db) {
-        super(db, Offert, Offert);
+        super(db, offer, offer);
     }
 
     _isModelValid(model) {
@@ -28,4 +28,4 @@ class OffertsData extends BaseData {
     }
 }
 
-module.exports = OffertsData;
+module.exports = offersData;

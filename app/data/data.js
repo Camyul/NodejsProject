@@ -1,9 +1,9 @@
-const OffertsData = require('./offerts.data');
+const offersData = require('./offers.data');
 const UsersData = require('./users.data');
 
 const init = (db) => {
     return Promise.resolve({
-        offerts: new OffertsData(db),
+        offers: new offersData(db),
         users: new UsersData(db),
     });
 };

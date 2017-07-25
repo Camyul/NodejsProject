@@ -4,8 +4,8 @@ block body
   .container
     .row.main
       .main-login.main-center#sign
-        h5 New Offert
-        form(method='post', action='createoffert')
+        h5 New offer
+        form(method='post', action='createoffer')
           .form-group
             label.cols-sm-2.control-label(for='country') Country
             .cols-sm-10
@@ -42,4 +42,6 @@ block body
                   i.fa.fa-lock.fa-lg(aria-hidden='true')
                 input#confirm.form-control(type='date', name='date', placeholder='Enter Date')
           .form-group
-            input#button.btn.btn-primary.btn-lg.btn-block.login-button(type='submit', value='Create Offert')
+            input#button.btn.btn-primary.btn-lg.btn-block.login-button(type='submit', value='Create offer')
+block body_end_scripts
+  script(src='../static/js/createOffer')

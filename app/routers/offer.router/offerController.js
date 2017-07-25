@@ -1,17 +1,17 @@
-class OffertController {
+class offerController {
     constructor(data) {
         this.data = data;
     }
 
-    getOfferts(req, res) {
-        return this.data.offerts.getAll()
+    getoffers(req, res) {
+        return this.data.offers.getAll()
             .then((offers) => {
                 return res.render('offers', {
                     context: offers,
                 });
             });
     }
-    getMyOfferts(req, res) {
+    getMyoffers(req, res) {
         if (!req.isAuthenticated()) {
             return res.status(401).render('./profile/unauthorized');
         }
@@ -19,15 +19,15 @@ class OffertController {
             context: req.user.offers || [],
         });
     }
-    getCreateOffert(req, res) {
+    getCreateoffer(req, res) {
         if (!req.isAuthenticated()) {
             res.status(401).render('./profile/unauthorized');
         } else {
-            res.status(200).render('createoffert');
+            res.status(200).render('createoffer');
         }
     }
 
-    deleteOffert(req, res) {
+    deleteoffer(req, res) {
         const offerId = req.body._id;
         console.log(offerId);
 
@@ -35,9 +35,9 @@ class OffertController {
 
         const MongoClient = require('mongodb');
 
-        MongoClient.connect('mongodb://localhost:27017/sharedTravel', function(error_, db) {
-            db.collection('offerts', {}, function(error, offerts) {
-                offerts.remove({ _id: ObjectID(offerId)}, function(err, result) {
+        MongoClient.connect('mongodb://localhost/sharedTravel', function(error_, db) {
+            db.collection('offers', {}, function(error, offers) {
+                offers.remove({ _id: ObjectID(offerId) }, function(err, result) { // TO DO: FIX
                     if (err) {
                         console.log(err);
                     }
@@ -48,35 +48,35 @@ class OffertController {
             });
         });
     }
-    createOffert(req, res) {
-        const bodyOffert = req.body;
+    createoffer(req, res) {
+        const bodyoffer = req.body;
 
         // validate item
 
         const user = req.user;
 
-        bodyOffert.user = {
+        bodyoffer.user = {
             id: user._id,
             username: user.username,
         };
 
         return Promise
             .all([
-                this.data.offerts.create(bodyOffert),
+                this.data.offers.create(bodyoffer),
             ])
-            .then(([dbOffert]) => {
+            .then(([dboffer]) => {
                 user.offers = user.offers || [];
                 user.offers.push({
-                    _id: dbOffert._id,
-                    country: dbOffert.country,
-                    city: dbOffert.city,
-                    price: dbOffert.price,
-                    duration: dbOffert.duration,
-                    date: dbOffert.date,
+                    _id: dboffer._id,
+                    country: dboffer.country,
+                    city: dboffer.city,
+                    price: dboffer.price,
+                    duration: dboffer.duration,
+                    date: dboffer.date,
                 });
 
                 return Promise.all([
-                    this.data.offerts.updateById(dbOffert),
+                    this.data.offers.updateById(dboffer),
                     this.data.users.updateById(user),
                 ]);
             })
@@ -86,13 +86,13 @@ class OffertController {
             })
             .catch((err) => {
                 req.flash('error', err);
-                return res.redirect('/createoffert');
+                return res.redirect('/createoffer');
             });
     }
 }
 
 const init = (data) => {
-    return new OffertController(data);
+    return new offerController(data);
 };
 
 module.exports = { init };
