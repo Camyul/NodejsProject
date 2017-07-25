@@ -5,7 +5,7 @@ block body
     .row.main
       .main-login.main-center#sign
         h5 Sign up and use our traveling platform
-        form(method='post', action='/auth/sign-up')
+        form(method='post', id='signupForm', action='/auth/sign-up')
           .form-group
             label.cols-sm-2.control-label(for='name') Your Name
             .cols-sm-10
@@ -19,7 +19,7 @@ block body
               .input-group
                 span.input-group-addon
                   i.fa.fa-envelope.fa(aria-hidden='true')
-                input#email.form-control(type='text', name='email', placeholder='Enter your Email')
+                input#email.form-control(type='text', name='email',  placeholder='Enter your Email')
           .form-group
             label.cols-sm-2.control-label(for='username') Username
             .cols-sm-10
@@ -33,7 +33,7 @@ block body
               .input-group
                 span.input-group-addon
                   i.fa.fa-lock.fa-lg(aria-hidden='true')
-                input#password.form-control(type='password', name='password', placeholder='Enter your Password')
+                input#password.form-control(type='password', name='password',  placeholder='Enter your Password')
           .form-group
             label.cols-sm-2.control-label(for='confirm') Confirm Password
             .cols-sm-10

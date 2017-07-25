@@ -5,42 +5,42 @@ block body
     .row.main
       .main-login.main-center#sign
         h5 New offer
-        form(method='post', action='createoffer')
+        form#form(method='post', action='createoffer')
           .form-group
             label.cols-sm-2.control-label(for='country') Country
             .cols-sm-10
               .input-group
                 span.input-group-addon
                   i.fa.fa-user.fa(aria-hidden='true')
-                input#name.form-control(type='text', name='country', placeholder='Enter Country Name')
+                input#country.form-control(type='text', name='country', placeholder='Enter Country Name')
           .form-group
             label.cols-sm-2.control-label(for='city') City
             .cols-sm-10
               .input-group
                 span.input-group-addon
                   i.fa.fa-envelope.fa(aria-hidden='true')
-                input#email.form-control(type='text', name='city', placeholder='Enter City')
+                input#city.form-control(type='text', name='city', placeholder='Enter City')
           .form-group
             label.cols-sm-2.control-label(for='price') Price
             .cols-sm-10
               .input-group
                 span.input-group-addon
                   i.fa.fa-users.fa(aria-hidden='true')
-                input#username.form-control(type='text', name='price', placeholder='Enter Price')
+                input#price.form-control(type='text', name='price', placeholder='Enter Price')
           .form-group
             label.cols-sm-2.control-label(for='duration') Duration
             .cols-sm-10
               .input-group
                 span.input-group-addon
                   i.fa.fa-lock.fa-lg(aria-hidden='true')
-                input#password.form-control(type='text', name='duration', placeholder='Enter Duration')
+                input#duration.form-control(type='text', name='duration', placeholder='Enter Duration')
           .form-group
             label.cols-sm-2.control-label(for='date') Date
             .cols-sm-10
               .input-group
                 span.input-group-addon
                   i.fa.fa-lock.fa-lg(aria-hidden='true')
-                input#confirm.form-control(type='date', name='date', placeholder='Enter Date')
+                input#date.form-control(type='date', name='date', placeholder='Enter Date')
           .form-group
             input#button.btn.btn-primary.btn-lg.btn-block.login-button(type='submit', value='Create offer')
 block body_end_scripts
