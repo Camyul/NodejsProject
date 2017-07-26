@@ -36,19 +36,10 @@ class OfferController {
         const MongoClient = require('mongodb');
 
         MongoClient.connect('mongodb://localhost/sharedTravel', function(error_, db) {
-            db.collection('offers', {}, function(error, offers) {
-                offers.remove({ _id: ObjectID(offerId) }, //eslint-disable-line 
-                    function(err, result) { // TO DO: FIX
-                        if (err) {
-                            console.log(err);
-                        }
-                        console.log('No errors');
-                        db.close();
-                        return res.redirect('/myoffers');
-                    });
-            });
+            db.offers.remove({ id: ObjectID(offerId) }, true) //eslint-disable-line
         });
     }
+
     createoffer(req, res) {
         const bodyoffer = req.body;
 

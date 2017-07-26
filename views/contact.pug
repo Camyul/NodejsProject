@@ -11,24 +11,24 @@ block body
       .col-sm-6
         h2.section-title
           | Send Message
-        .form
+        form.form#form(method='post', action='/contact')
           .input-group
-            input.form-control.border-radius.border-right(type='text', placeholder='Name', required='')
+            input#name.form-control.border-radius.border-right(type='text', placeholder='Name', required='')
             span.input-group-addon.border-radius.custom-addon
               i.ion-person
           .input-group
-            input.form-control.border-radius.border-right(name='email', type='email', placeholder='Email address', required='')
+            input#email.form-control.border-radius.border-right(name='email', type='email', placeholder='Email address', required='')
             span.input-group-addon.border-radius.custom-addon
               i.ion-email
           .input-group
-            input.form-control.border-radius.border-right(type='tel', placeholder='Phone number')
+            input#number.form-control.border-radius.border-right(type='tel', placeholder='Phone number', required='')
             span.input-group-addon.border-radius.custom-addon
               i.ion-ios-telephone
           .input-group
-            textarea.form-control.border-radius.border-right(rows='8', placeholder='Write Message')
+            textarea#message.form-control.border-radius.border-right(rows='8', placeholder='Write Message', required='')
             span.input-group-addon.border-radius.custom-addon
               i.ion-chatbubbles
-          button.btn.btn-default.border-radius.custom-button(type='submit') SEND MESSAGE
+          input.btn.btn-default.border-radius.custom-button(type='submit' value='SEND MESSAGE')
       .col-sm-6
         h2.section-title
           | Find Us Via Google Map
@@ -61,3 +61,5 @@ block body
     li
       a(href='#')
         i.ion-social-googleplus
+block body_end_scripts
+  script(src='/static/js/contact.js')
