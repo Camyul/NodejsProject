@@ -5,14 +5,14 @@ block body
     .row.main
       .main-login.main-center#sign
         h5 Sign up and use our traveling platform
-        form(method='post', id='signupForm', action='/auth/sign-up')
+        form#form(method='post', action='/auth/sign-up')
           .form-group
-            label.cols-sm-2.control-label(for='name') Your Name
+            label.cols-sm-2.control-label(for='name') Your First Name
             .cols-sm-10
               .input-group
                 span.input-group-addon
                   i.fa.fa-user.fa(aria-hidden='true')
-                input#name.form-control(type='text', name='name', placeholder='Enter your Name')
+                input#name.form-control(type='text', name='name', placeholder='Enter your First Name')
           .form-group
             label.cols-sm-2.control-label(for='email') Your Email
             .cols-sm-10
