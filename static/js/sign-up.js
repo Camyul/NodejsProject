@@ -1,6 +1,5 @@
 $(window).load(function() {
     let emailMatcher = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
-    toastr.info('Toastr and jquery are armed and ready');
 
     $('#form').submit(function(event) {
 
