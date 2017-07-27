@@ -2,8 +2,10 @@ const { Router } = require('express');
 const MongoClient = require('mongodb');
 
 
-const attach = (app) => {
+const attach = (app, data) => {
     const router = new Router();
+    const controller = require('./profileController').init(data);
+
 
     router
         .get('/', (req, res) => {
@@ -18,25 +20,11 @@ const attach = (app) => {
         })
         .post('/account/profile', (req, res) => {
             if (!req.isAuthenticated()) {
-                res.status(401).render('./profile/unauthorized');
-            } else {
-                console.log('Loading proifle!');
-                console.log(req.body);
-                MongoClient.connect('mongodb://localhost/sharedTravel', function(error, db) {
-                    db.collection('users', {}, function(errr, users) {
-                        users.findOne({ email: req.body.email }, // TO DO: FIX
-                            function(err, result) {
-                                if (err) {
-                                    console.log(err);
-                                }
-                                result.email = req.body.email;
-                                result.name = req.body.name;
-                                result.location = req.body.location;
-                                db.close();
-                            });
-                    });
-                });
+                return res.status(401).render('./profile/unauthorized');
             }
+            console.log('Loading proifle!');
+            console.log(req.body);
+            return controller.updateProfile(req, res);
         })
         .get('/contact', (req, res) => {
             return res.render('contact');
