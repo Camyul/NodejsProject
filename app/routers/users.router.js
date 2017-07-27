@@ -5,7 +5,7 @@ const { Router } = require('express');
 const attach = (app, data) => {
     const router = new Router();
     const controller = require('./profileController').init(data);
-
+    const contactController = require('./contactController').init(data);
 
     router
         .get('/', (req, res) => {
@@ -36,6 +36,12 @@ const attach = (app, data) => {
         })
         .get('/contact', (req, res) => {
             return res.render('contact');
+        })
+        .post('/contact', (req, res) => {
+            return contactController.submitForm(req, res);
+        })
+        .post('/contact/subscribe', (req, res) => {
+            return contactController.subscribe(req, res);
         });
     app.use('/', router);
 };

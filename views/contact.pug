@@ -45,9 +45,10 @@ block body
     .row
       .col-md-4.col-sm-6.col-md-offset-4.col-sm-offset-3
         .input-group
-          input.form-control.border-radius(type='email', placeholder='Email address')
-          span.input-group-btn
-            button.btn.btn-default.border-radius.custom-sub-btn(type='button') DONE
+          form(method='post', action='/contact/subscribe')
+            input.form-control.border-radius(type='email', placeholder='Email address')
+            span.input-group-btn
+              input.btn.btn-default.border-radius.custom-sub-btn(type='submit' value='SUBSCRIBE')
   ul.social-icon
     li
       a(href='#')
