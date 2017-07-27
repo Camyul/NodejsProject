@@ -32,11 +32,13 @@ class OfferController {
         console.log(offerId);
 
         console.log('Deleting an offer!');
-
-        const MongoClient = require('mongodb');
-
-        MongoClient.connect('mongodb://localhost/sharedTravel', function(error_, db) {
-            db.offers.remove({ id: ObjectID(offerId) }, true) //eslint-disable-line
+        console.log(this.data.offers);
+        this.data.offers.findOneAndDelete(
+            { '_id': `ObjectId(${offerId})` }, function(err, result) { // TO DO
+            if (err) {
+                console.log(err);
+            }
+            console.log(result);
         });
     }
 

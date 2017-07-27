@@ -1,5 +1,6 @@
 const BaseData = require('./base/base.data');
 const User = require('../../models/user.model');
+const toastr = require('toastr');
 
 class UsersData extends BaseData {
     constructor(db) {
@@ -16,11 +17,11 @@ class UsersData extends BaseData {
         return this.findByUsername(username)
             .then((user) => {
                 if (!user) {
-                    throw new Error('Invalid user');
+                    throw new Error('Invalid Username or password!');
                 }
 
                 if (user.password !== password) {
-                    throw new Error('Invalid password');
+                    throw new Error('Invalid Username or password!');
                 }
 
                 return true;
