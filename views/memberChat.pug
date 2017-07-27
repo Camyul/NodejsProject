@@ -1,0 +1,14 @@
+extend shared/_master
+
+block body
+    section.section-background
+    .container
+        h2.page-header 
+            |
+    section.section-wrapper
+            .row
+                .col-sm-12
+                    ul#messages
+                    form#chat(action='')
+                        input#m(autocomplete='off')
+                        button Send

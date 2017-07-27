@@ -147,6 +147,46 @@ span.input-group-addon i {
 }
 
 
+/* --- MEMBER CHAT --- */
+
+#chat {
+    background: #000;
+    padding: 3px;
+    position: fixed;
+    bottom: 60px;
+    width: 100%;
+}
+
+#chat input {
+    border: 0;
+    padding: 10px;
+    width: 90%;
+    margin-right: .5%;
+    color: black;
+}
+
+#chat button {
+    width: 9%;
+    background: skyblue;
+    border: none;
+    padding: 10px;
+}
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#messages li {
+    padding: 5px 10px;
+}
+
+#messages li:nth-child(odd) {
+    background: #eee;
+}
+
+
 /* --- OFFERS --- */
 
 #offers-container {
@@ -211,41 +251,47 @@ span.input-group-addon i {
     }
 }
 
+
 /* --- ERROR PAGE STYLES --- */
 
 #fof {
-    display:block; position:relative; 
-    width:100%; 
-    height:529px; 
-    background:url("../assets/images/404.png") top center no-repeat; 
-    line-height:1.6em; text-align:center;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 529px;
+    background: url("../assets/images/404.png") top center no-repeat;
+    line-height: 1.6em;
+    text-align: center;
     color: black;
 }
+
 #fof .positioned {
-    padding-top:80px;
+    padding-top: 80px;
 }
+
 #fof .hgroup {
-    margin-bottom:20px; 
-    text-transform:uppercase;
+    margin-bottom: 20px;
+    text-transform: uppercase;
     color: black;
-    
 }
+
 #fof .hgroup h1 {
-    margin-bottom:0; 
-    font-size:160px; 
-    line-height:120px;
+    margin-bottom: 0;
+    font-size: 160px;
+    line-height: 120px;
     color: black;
 }
+
 #fof .hgroup h2 {
-    margin-bottom:0; font-size:80px;
+    margin-bottom: 0;
+    font-size: 80px;
     color: black;
-    
 }
+
 #fof p {
     color: black;
-    
-    display:block; 
-    margin:0 0 25px 0; 
-    padding:0; 
-    font-size:16px;
+    display: block;
+    margin: 0 0 25px 0;
+    padding: 0;
+    font-size: 16px;
 }
