@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const MongoClient = require('mongodb');
+// const MongoClient = require('mongodb');
 
 
 const attach = (app, data) => {
@@ -15,7 +15,9 @@ const attach = (app, data) => {
             if (!req.isAuthenticated()) {
                 res.status(401).render('./profile/unauthorized');
             } else {
-                res.status(200).render('./profile/profile');
+                res.status(200).render('./profile/profile', {
+                    context: req.user || [],
+                });
             }
         })
         .post('/account/profile', (req, res) => {
@@ -25,6 +27,12 @@ const attach = (app, data) => {
             console.log('Loading proifle!');
             console.log(req.body);
             return controller.updateProfile(req, res);
+        })
+        .post('/account/delete', (req, res) => {
+            if (!req.isAuthenticated()) {
+                return res.status(401).render('./profile/unauthorized');
+            }
+            return controller.deleteProfile(req, res);
         })
         .get('/contact', (req, res) => {
             return res.render('contact');

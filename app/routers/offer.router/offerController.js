@@ -33,13 +33,13 @@ class OfferController {
 
         console.log('Deleting an offer!');
         console.log(this.data.offers);
-        this.data.offers.findOneAndDelete(
-            { '_id': `ObjectId(${offerId})` }, function(err, result) { // TO DO
-            if (err) {
-                console.log(err);
-            }
-            console.log(result);
-        });
+        this.data.offers.findOneAndDelete({ '_id': `ObjectId(${offerId})` },
+            function(err, result) { // TO DO
+                if (err) {
+                    console.log(err);
+                }
+                console.log(result);
+            });
     }
 
     createoffer(req, res) {

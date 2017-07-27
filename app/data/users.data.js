@@ -1,6 +1,5 @@
 const BaseData = require('./base/base.data');
 const User = require('../../models/user.model');
-const toastr = require('toastr');
 
 class UsersData extends BaseData {
     constructor(db) {

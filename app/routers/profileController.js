@@ -5,9 +5,9 @@ class ProfileController {
 
     updateProfile(req, res) {
         console.log('You are in profile controller!');
-        console.log(this.data);
-        this.data.collection('users', {}, function(errr, users) {
-            users.findOne({ email: req.body.email }, // TO DO: FIX
+        console.log(req.user);
+        this.data.collection('users', {}, (error, users) => {
+            users.findOneAndUpdate({ _id: `ObjectId(${req.user._id})` },
                 function(err, result) {
                     if (err) {
                         console.log(err);
@@ -15,6 +15,20 @@ class ProfileController {
                     result.email = req.body.email;
                     result.name = req.body.name;
                     result.location = req.body.location;
+                });
+        });
+    }
+
+    deleteProfile(req, res) {
+        console.log('You are in profile delete!');
+        console.log(req.user);
+        this.data.collection('users', {}, (error, users) => {
+            users.findOneAndDelete({ _id: `ObjectId(${req.user._id})` },
+                (err, result) => {
+                    if (err) {
+                        console.log(err);
+                    }
+                    console.log(result);
                 });
         });
     }
