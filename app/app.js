@@ -1,11 +1,14 @@
-const express = require('express');
-
+/* eslint-disable new-cap */
 
 const init = (data) => {
+    const express = require('express');
     const app = express();
+    const server = require('http').Server(app);
+    const io = require('socket.io')(server);
 
     require('./config/app.config').applyTo(app);
     require('./config/auth.config').applyTo(app, data);
+    require('./config/chat.config').applyTo(io);
 
     app.use(require('connect-flash')());
 
@@ -19,7 +22,7 @@ const init = (data) => {
         res.status(404)
             .render('error-page');
     });
-    return Promise.resolve(app);
+    return Promise.resolve(server);
 };
 
 module.exports = {

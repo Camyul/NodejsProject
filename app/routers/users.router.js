@@ -52,10 +52,6 @@ const attach = (app, data) => {
         .post('/contact/subscribe', (req, res) => {
             return contactController.subscribe(req, res);
         });
-
-    io.on('connection', function(socket) {
-        console.log('a user connected');
-    });
     app.use('/', router);
 };
 

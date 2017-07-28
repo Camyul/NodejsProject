@@ -157,6 +157,11 @@ span.input-group-addon i {
     width: 100%;
 }
 
+#chat-field {
+    background: black;
+    border: 3px solid black;
+}
+
 #chat input {
     border: 0;
     padding: 10px;
@@ -183,7 +188,13 @@ span.input-group-addon i {
 }
 
 #messages li:nth-child(odd) {
-    background: #eee;
+    background: #ddd;
+    color: black;
+}
+
+#messages li:nth-child(even) {
+    background: #aaa;
+    color: black;
 }
 
 

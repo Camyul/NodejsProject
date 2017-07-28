@@ -7,8 +7,11 @@ block body
             |
     section.section-wrapper
             .row
-                .col-sm-12
+                .col-sm-12#chat-field
                     ul#messages
                     form#chat(action='')
                         input#m(autocomplete='off')
                         button Send
+block body_end_scripts
+    script(src='/socket.io/socket.io.js')
+    script(src='/static/js/chat.js')
