@@ -27,6 +27,10 @@ footer {
     width: 100%;
 }
 
+#profile {
+    margin-top: 100px;
+}
+
 #footerLink:hover {
     color: blue;
 }
@@ -45,10 +49,6 @@ h1.title {
     font-size: 50px;
     font-family: 'Passion One', cursive;
     font-weight: 400;
-}
-
-#profille {
-    margin-top: 200px;
 }
 
 hr {

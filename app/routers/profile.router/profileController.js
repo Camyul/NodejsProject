@@ -4,7 +4,6 @@ class ProfileController {
     }
 
     updateProfile(req, res) {
-        console.log('You are in profile controller!');
         const userToUpdate = req.user;
         const newData = req.body;
         newData._id = userToUpdate._id;
@@ -13,8 +12,6 @@ class ProfileController {
         newData.username = req.body.username || userToUpdate.username;
         newData.password = userToUpdate.password;
         newData.confirm = userToUpdate.confirm;
-        console.log(userToUpdate);
-        console.log(newData);
 
         return Promise.all([
             this.data.users.updateById(newData),
@@ -24,17 +21,12 @@ class ProfileController {
     }
 
     deleteProfile(req, res) {
-        console.log('You are in profile delete!');
-        console.log(req.user);
-        this.data.collection('users', {}, (error, users) => {
-            users.findOneAndDelete({ _id: `ObjectId(${req.user._id})` },
-                (err, result) => {
-                    if (err) {
-                        console.log(err);
-                    }
-                    console.log(result);
-                });
-        });
+        return Promise.all([
+                this.data.users.deleteById(req.user._id),
+            ])
+            .then(() => {
+                return res.redirect('/');
+            });
     }
 }
 

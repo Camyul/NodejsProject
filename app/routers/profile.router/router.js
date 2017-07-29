@@ -18,14 +18,14 @@ const attach = (app, data) => {
             if (!req.isAuthenticated()) {
                 return res.status(401).render('./profile/unauthorized');
             }
-            console.log('Loading proifle!');
-            console.log(req.body);
+
             return controller.updateProfile(req, res);
         })
         .post('/account/delete', (req, res) => {
             if (!req.isAuthenticated()) {
                 return res.status(401).render('./profile/unauthorized');
             }
+
             return controller.deleteProfile(req, res);
         })
         .get('/contact', (req, res) => {

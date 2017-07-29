@@ -1,10 +1,8 @@
 extend ../shared/_master
 
 block body
-  .page-header
-    h3 Profile Information
 
-  form.form-horizontal(action='/account/profile', method='POST')
+  form#profile.form-horizontal(action='/account/profile', method='POST')
     .form-group
       label.col-sm-3.control-label(for='email') Email
       .col-sm-7
