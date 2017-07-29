@@ -33,18 +33,18 @@ block body
  .subscribe.section-wrapper
   a.brand-logo(href='/', title='HOME')
     i.ion-paper-airplane
-    |  Shared 
+    |  Euro 
     span Travel
   p.subscribe-now
     | Subscribe to our Newsletter
   .container
     .row
-      .col-md-4.col-sm-6.col-md-offset-4.col-sm-offset-3
-        .input-group
+      .col-md-4.col-sm-6.col-md-offset-4.col-sm-offset-4
           form(method='post', action='/contact/subscribe')
-            input.form-control.border-radius(type='email', placeholder='Email address')
-            span.input-group-btn
-              input.btn.btn-default.border-radius.custom-sub-btn(type='submit' value='SUBSCRIBE')
+           .form-group
+            .input-group
+             input.form-control.border-radius(type='email', name='email', placeholder='Email address')
+             input.btn.btn-default.border-radius.custom-sub-btn(type='submit' value='SUBSCRIBE')
   ul.social-icon
     li
       a(href='#')

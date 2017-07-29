@@ -5,8 +5,9 @@ class ContactController {
 
     submitForm(req, res) {
         console.log('Submitting contact entry!');
-        console.log(req.body);
-        this.data.contactEntries
+        const contactBody = req.body;
+        console.log(contactBody);
+        /* this.data.contactEntries
             .insertOne({
                     'name': req.body.name,
                     'email': req.body.email,
@@ -18,18 +19,18 @@ class ContactController {
                         console.log(err);
                     }
                     console.log(result);
-                });
+                }); */
     }
 
     subscribe(req, res) {
-        console.log('Subscribing');
-        console.log(req.body.email);
-        this.data.subscribers.insertOne({ 'email': req.body.email },
-            function(err, result) { // TO DO
-                if (err) {
-                    console.log(err);
-                }
-                console.log(result);
+        const subscribeBody = req.body;
+
+        return Promise
+            .all([
+                this.data.subscribers
+                .findOrCreateByEmail(subscribeBody),
+            ]).then(() => {
+                return res.redirect('/contact');
             });
     }
 }
