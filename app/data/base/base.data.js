@@ -37,6 +37,12 @@ class BaseMongoDbData {
             });
     }
 
+    deleteById(id) {
+        return this.collection.deleteOne({
+            _id: new ObjectID(id),
+        });
+    }
+
     findById(id) {
         return this.collection.findOne({
             _id: new ObjectID(id),

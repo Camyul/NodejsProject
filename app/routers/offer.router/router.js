@@ -6,7 +6,6 @@ const attach = (app, data) => {
 
     router
         .get('/offers', (req, res) => {
-            // auth
             return controller.getoffers(req, res);
         })
         .get('/myoffers', (req, res) => {
@@ -19,7 +18,6 @@ const attach = (app, data) => {
             return controller.createoffer(req, res);
         })
         .post('/myoffers', (req, res) => {
-            console.log('Deleting...');
             return controller.deleteoffer(req, res);
         });
     app.use('/', router);

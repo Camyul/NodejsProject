@@ -29,23 +29,28 @@ class OfferController {
 
     deleteoffer(req, res) {
         const offerId = req.body._id;
-        console.log(offerId);
+        const user = req.user;
 
-        console.log('Deleting an offer!');
-        console.log(this.data.offers);
-        this.data.offers.findOneAndDelete({ '_id': `ObjectId(${offerId})` },
-            function(err, result) { // TO DO
-                if (err) {
-                    console.log(err);
-                }
-                console.log(result);
-            });
+        const filtered = [];
+
+        for (let i = 0; i < user.offers.length; i++) {
+            if (user.offers[i]._id.toString() !== offerId.toString()) {
+                filtered.push(user.offers[i]);
+            }
+        }
+        user.offers = filtered;
+
+        return Promise.all(
+            [this.data.offers.deleteById(offerId),
+                this.data.users.updateById(user),
+            ]
+        ).then(() => {
+            return res.redirect('/myoffers');
+        });
     }
 
     createoffer(req, res) {
         const bodyoffer = req.body;
-
-        // validate item
 
         const user = req.user;
 
@@ -75,7 +80,6 @@ class OfferController {
                 ]);
             })
             .then(() => {
-                // connect-flash
                 return res.redirect('/offers');
             })
             .catch((err) => {
