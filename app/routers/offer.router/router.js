@@ -5,6 +5,9 @@ const attach = (app, data) => {
     const controller = require('./offerController').init(data);
 
     router
+        .get('/', (req, res) => {
+            return res.status(200).render('home');
+        })
         .get('/offers', (req, res) => {
             return controller.getoffers(req, res);
         })
