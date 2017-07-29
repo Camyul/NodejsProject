@@ -3,7 +3,7 @@ const sinon = require('sinon');
 
 const BaseData = require('../../../app/data/base/base.data');
 
-describe('Testing data.filterBy()', () => {
+describe('Testing data.create()', () => {
     const db = {
         collection: () => {},
     };
