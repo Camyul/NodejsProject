@@ -47,6 +47,10 @@ h1.title {
     font-weight: 400;
 }
 
+#profille {
+    margin-top: 200px;
+}
+
 hr {
     width: 10%;
     color: #fff;

@@ -5,17 +5,21 @@ class ProfileController {
 
     updateProfile(req, res) {
         console.log('You are in profile controller!');
-        console.log(req.user);
-        this.data.collection('users', {}, (error, users) => {
-            users.findOneAndUpdate({ _id: `ObjectId(${req.user._id})` },
-                function(err, result) {
-                    if (err) {
-                        console.log(err);
-                    }
-                    result.email = req.body.email;
-                    result.name = req.body.name;
-                    result.location = req.body.location;
-                });
+        const userToUpdate = req.user;
+        const newData = req.body;
+        newData._id = userToUpdate._id;
+        newData.name = req.body.name || userToUpdate.name;
+        newData.email = req.body.email || userToUpdate.email;
+        newData.username = req.body.username || userToUpdate.username;
+        newData.password = userToUpdate.password;
+        newData.confirm = userToUpdate.confirm;
+        console.log(userToUpdate);
+        console.log(newData);
+
+        return Promise.all([
+            this.data.users.updateById(newData),
+        ]).then(() => {
+            return res.redirect('/profile');
         });
     }
 
