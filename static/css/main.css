@@ -27,6 +27,11 @@ footer {
     width: 100%;
 }
 
+#search-country,
+#search-city {
+    margin-top: -25px;
+}
+
 #profile {
     margin-top: 100px;
 }

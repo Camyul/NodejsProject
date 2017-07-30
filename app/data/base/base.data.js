@@ -14,6 +14,19 @@ class BaseMongoDbData {
             .toArray();
     }
 
+    filterOffers(props) {
+        return this.collection.find(props)
+            .toArray()
+            .then((models) => {
+                if (this.ModelClass.toViewModel) {
+                    return models.map(
+                        (model) => this.ModelClass.toViewModel(model)
+                    );
+                }
+                return models;
+            });
+    }
+
     getAll() {
         return this.collection.find()
             .toArray()

@@ -9,7 +9,7 @@ $(function() {
             const uniq = names.filter((el, i, arr) => {
                 return names.indexOf(el) === i;
             });
-            console.log(uniq);
+
             $("#autocompleteCountry").typeahead({ source: uniq });
         });
 });
@@ -24,7 +24,7 @@ $(function() {
             const uniq = names.filter((el, i, arr) => {
                 return names.indexOf(el) === i;
             });
-            console.log(uniq);
+
             $("#autocompleteCity").typeahead({ source: uniq });
         });
 });

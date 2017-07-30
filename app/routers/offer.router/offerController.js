@@ -27,6 +27,28 @@ class OfferController {
         }
     }
 
+    searchOffers(req, res) {
+        const searchedOffers = req.body;
+        const filter = {
+            $and: [{
+                country: { '$regex': `.*${searchedOffers.country}.*`, '$options': 'i' },
+            }, {
+                city: { '$regex': `.*${searchedOffers.city}.*`, '$options': 'i' },
+            }, {
+                date: { $regex: `.*${searchedOffers.date}.*` },
+            }],
+        };
+
+        return Promise.all([
+                this.data.offers.filterOffers(filter),
+            ])
+            .then((offers) => {
+                return res.render('offers', {
+                    context: offers[0],
+                });
+            });
+    }
+
     deleteoffer(req, res) {
         const offerId = req.body._id;
         const user = req.user;

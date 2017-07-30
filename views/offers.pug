@@ -4,6 +4,7 @@ block head_scripts
         script(src="https://rawgit.com/bassjobsen/Bootstrap-3-Typeahead/master/bootstrap3-typeahead.js")
         link(rel="stylesheet", href="/libs/typeahead/style.css")
         script(src="/static/js/offers.js")
+        title Euro Travels
 
 block body
 
@@ -12,24 +13,24 @@ block body
     | Find a Tour
   p.section-subtitle
     | Where would you like to go?
-  .row
-    .col-md-3.col-sm-6
+  form#search-offer(action='/offers/search', method='POST')
+   .row
+    #search-country.col-md-3.col-sm-6
       form.form-dropdown(role='form' name="country")
         .form-group
           label(for='sel1') Select Country:
-          input#autocompleteCountry.form-control.border-radius
-    .col-md-3.col-sm-6
-      form.form-dropdown(role='form' name="city")
+          input#autocompleteCountry.form-control.border-radius(type='text', name='country', autocomplete="off")
+    #search-city.col-md-3.col-sm-6
         .form-group
-          label(for='sel2') Select city:
-          input#autocompleteCity.form-control.border-radius
+          label(for='sel2') Select City:
+          input#autocompleteCity.form-control.border-radius(type='text', name='city', autocomplete="off")
     .col-md-3.col-sm-6
       .input-group
-        input#sel3.form-control.border-radius.border-right(type='date', placeholder='Arrival')
+        input#sel3.form-control.border-radius.border-right(type='date', name='date', placeholder='Arrival')
         span.input-group-addon.border-radius.custom-addon
           i.ion-ios-calendar
     .col-md-3.col-sm-6
-      .btn.btn-default.border-radius.custom-button
+      button.btn.btn-default.border-radius.custom-button(type='submit')
         | Search
 
  section.section-background
