@@ -1,1 +1,4 @@
 static
+node_modules
+coverage
+tests

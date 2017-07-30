@@ -39,8 +39,16 @@ gulp.task('pre-test', () => {
         .pipe(istanbul.hookRequire());
 });
 
-gulp.task('unittest', ['pre-test'], () => {
+gulp.task('alltests', ['pre-test'], () => {
     return gulp.src(['./tests/unit/**/*.js', './tests/integration/**/*.js'])
+        .pipe(mocha({
+            reporter: 'nyan',
+        }))
+        .pipe(istanbul.writeReports());
+});
+
+gulp.task('unittests', ['pre-test'], () => {
+    return gulp.src(['./tests/unit/**/*.js'])
         .pipe(mocha({
             reporter: 'nyan',
         }))

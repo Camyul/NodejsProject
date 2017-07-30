@@ -31,9 +31,15 @@ class OfferController {
         const searchedOffers = req.body;
         const filter = {
             $and: [{
-                country: { '$regex': `.*${searchedOffers.country}.*`, '$options': 'i' },
+                country: {
+                    '$regex': `.*${searchedOffers.country}.*`,
+                    '$options': 'i',
+                },
             }, {
-                city: { '$regex': `.*${searchedOffers.city}.*`, '$options': 'i' },
+                city: {
+                    '$regex': `.*${searchedOffers.city}.*`,
+                    '$options': 'i',
+                },
             }, {
                 date: { $regex: `.*${searchedOffers.date}.*` },
             }],

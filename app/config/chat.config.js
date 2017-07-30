@@ -1,6 +1,4 @@
 const applyTo = (io) => {
-    const users = [];
-
     console.log('Chat connected!');
 
     io.on('connection', function(socket) {
