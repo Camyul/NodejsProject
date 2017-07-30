@@ -1,4 +1,6 @@
 const gulp = require('gulp');
+const istanbul = require('gulp-istanbul');
+const mocha = require('gulp-mocha');
 
 const nodemon = require('gulp-nodemon');
 
@@ -27,4 +29,20 @@ gulp.task('dev', ['server'], () => {
         task: ['server'],
         script: 'server.js',
     });
+});
+
+gulp.task('pre-test', () => {
+    return gulp.src(['./app/**/*.js', './models/*.js'])
+        .pipe(istanbul({
+            includeUntested: true,
+        }))
+        .pipe(istanbul.hookRequire());
+});
+
+gulp.task('unittest', ['pre-test'], () => {
+    return gulp.src('./tests/unit/**/*.js')
+        .pipe(mocha({
+            reporter: 'nyan',
+        }))
+        .pipe(istanbul.writeReports());
 });
