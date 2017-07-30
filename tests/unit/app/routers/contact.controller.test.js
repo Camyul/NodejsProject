@@ -1,10 +1,10 @@
-const { expect } = require('chai');
+const { expect } = require('chai'); // Improve
 
 const { init } = require(
-    '../../../../app/routers/auth.router/userController');
+    '../../../../app/routers/contact.router/contactController');
 
 
-describe('Auth controller', () => {
+describe('Contact controller', () => {
     let data = null;
     let controller = null;
     const items = [1, 2, 3, 4];
@@ -14,10 +14,10 @@ describe('Auth controller', () => {
     beforeEach(() => {
         data = {
             items: {
-                getSignUpForm() {
+                subscribe() {
                     return Promise.resolve(items);
                 },
-                getSignInForm() {
+                submitForm() {
                     return Promise.resolve(items);
                 },
             },
@@ -28,17 +28,17 @@ describe('Auth controller', () => {
         res = require('../../req-res.mock').getResponseMock();
     });
 
-    it('Expect get sign up form to work.', () => {
-        return Promise.all([controller.data.items.getSignUpForm(req, res)]) // Returns undefined?
-            .then((getItems) => {
-                expect(getItems[0]).to.be.deep.equal(items);
+    it('Expect subscribe form to work.', () => {
+        return Promise.all([controller.data.items.subscribe(req, res)])
+            .then((x) => {
+                expect(x[0]).to.be.deep.equal(items);
                 expect(res.redirect).to.be.a('function');
             });
     });
-    it('Expect get sign in form to work.', () => {
-        return Promise.all([controller.data.items.getSignInForm(req, res)])
-            .then((getItems) => {
-                expect(getItems[0]).to.be.deep.equal(items);
+    it('Expect contact form to work.', () => {
+        return Promise.all([controller.data.items.submitForm(req, res)])
+            .then((x) => {
+                expect(x[0]).to.be.deep.equal(items);
                 expect(res.redirect).to.be.a('function');
             });
     });
