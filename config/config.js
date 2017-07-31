@@ -1,5 +1,5 @@
-const port = 3001;
-const connectionString = 'mongodb://localhost/sharedTravel';
+const port = 80;
+const connectionString = 'mongodb://http://ec2-54-93-224-213.eu-central-1.compute.amazonaws.com:27017/sharedTravel';
 
 const sessionSecret = 'Purple Unicorn';
 
