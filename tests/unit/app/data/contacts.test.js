@@ -55,8 +55,8 @@ describe('Contacts data tests', () => {
         message: '12345678123456781234567812345678123456781234567812345678123456781234567812345678',
     }
 
-    describe('when there are items in db', () => {
-        describe('with default toViewModel', () => {
+    describe('Contacts test', () => {
+        describe('Data test', () => {
             beforeEach(() => {
                 items = [1, 2, 3, 4];
                 ModelClass = class {};
